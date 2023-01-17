@@ -19,7 +19,6 @@ gulp.task('scripts', function () {
   return (
     gulp
       .src(['./upqode/assets/js/**/*.js', '!./upqode/assets/js/**/*.min.js'])
-      // .pipe(sourcemaps.init())
       .pipe(
         babel({
           presets: ['@babel/env'],
@@ -27,7 +26,6 @@ gulp.task('scripts', function () {
       )
       .pipe(uglify())
       .pipe(rename({ suffix: '.min' }))
-      // .pipe(sourcemaps.write("."))
       .pipe(strip())
       .pipe(gulp.dest('./upqode/assets/js'))
       .pipe(size())
@@ -38,7 +36,6 @@ gulp.task('widgets-scripts', function () {
   return (
     gulp
       .src(['./upqode/widgets/**/*.js', '!./upqode/widgets/**/*.min.js'])
-      // .pipe(sourcemaps.init())
       .pipe(
         babel({
           presets: ['@babel/env'],
@@ -46,7 +43,6 @@ gulp.task('widgets-scripts', function () {
       )
       .pipe(uglify())
       .pipe(rename({ suffix: '.min' }))
-      // .pipe(sourcemaps.write("."))
       .pipe(strip())
       .pipe(gulp.dest('./upqode/widgets/'))
       .pipe(size())
@@ -93,7 +89,6 @@ gulp.task('sass-widget', function () {
   return (
     gulp
       .src('./upqode/widgets/**/*.scss')
-      // .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(plumber())
       .pipe(
         sass({
@@ -118,7 +113,6 @@ gulp.task('sass-widget', function () {
         ])
       )
       .pipe(cleanCSS({ level: { 1: { specialComments: 0 } }, compatibility: 'ie8' }))
-      // .pipe(sourcemaps.write("."))
       .pipe(gulp.dest('./upqode/widgets'))
       .pipe(size())
   );
@@ -126,7 +120,7 @@ gulp.task('sass-widget', function () {
 
 //watcher
 gulp.task('watch', function () {
-  gulp.watch(['./upqode/assets/css/*.scss', './upqode/assets/css/**/*.scss'], gulp.series('sass'));
+  gulp.watch(['./upqode/assets/css/**/*.scss'], gulp.series('sass'));
   gulp.watch('./upqode/widgets/**/*.scss', gulp.series('sass-widget'));
   gulp.watch(
     ['./upqode/widgets/**/*.js', '!./upqode/widgets/**/*.min.js'],
