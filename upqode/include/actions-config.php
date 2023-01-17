@@ -120,8 +120,6 @@ function upqode_enqueue_scripts() {
 	}
 
     wp_enqueue_style( 'upqode-fonts', upqode_fonts_url(), array(), null );
-    wp_enqueue_style( 'ionicons', UPQODE_T_URI . '/assets/css/lib/ionicons.css' );
-    wp_enqueue_style( 'bootstrap', UPQODE_T_URI . '/assets/css/lib/bootstrap.css' );
 	wp_enqueue_style( 'upqode-general', UPQODE_T_URI . '/assets/css/general.css' );
 
 	if ( is_404() ) {
@@ -158,10 +156,7 @@ function upqode_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-    wp_enqueue_script( 'upqode-navigation', UPQODE_T_URI . '/assets/js/navigation.min.js', array(), '', true );
     wp_enqueue_script( 'upqode-skip-link-focus-fix', UPQODE_T_URI . '/assets/js/lib/skip-link-focus-fix.js', array(), '', true );
-    wp_enqueue_script( 'fitvids', UPQODE_T_URI . '/assets/js/lib/fitvids.js', array( 'jquery' ), '', true );
-    wp_enqueue_script( 'isotope', UPQODE_T_URI . '/assets/js/lib/isotope.js', array( 'jquery' ), '', true );
     wp_enqueue_script( 'upqode-script', UPQODE_T_URI . '/assets/js/script.min.js', array( 'jquery' ), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
