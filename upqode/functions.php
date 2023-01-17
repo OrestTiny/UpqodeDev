@@ -95,8 +95,8 @@ if ( ! class_exists( 'upqode_top_posts' ) ) {
 			echo $args['before_widget'];
 
 			if ( ! empty( $title ) ) { ?>
-                <h4 class="widget-title"><?php echo esc_html( $title ); ?></h4>
-			<?php }
+<h4 class="widget-title"><?php echo esc_html( $title ); ?></h4>
+<?php }
 
 
 			$popular = new WP_Query( array(
@@ -111,25 +111,27 @@ if ( ! class_exists( 'upqode_top_posts' ) ) {
 			if ( $popular->have_posts() ) : while ( $popular->have_posts() ) : $popular->the_post();
 				$image_id  = get_post_thumbnail_id( get_the_ID() );
 				$top_class = ! empty( $image_id ) ? 'image' : ''; ?>
-                <div class="upqode-widget-popular--item">
-                    <div class="upqode-widget-popular--image <?php echo esc_attr( $top_class ); ?>">
-                        <span><?php echo esc_html( $counter ); ?></span>
-						<?php if ( $image_id ) {
+<div class="upqode-widget-popular--item">
+  <div class="upqode-widget-popular--image <?php echo esc_attr( $top_class ); ?>">
+    <span><?php echo esc_html( $counter ); ?></span>
+    <?php if ( $image_id ) {
 							$image     = wp_get_attachment_image_url( $image_id, 'thumbnail' );
 							$image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true ); ?>
 
-                            <img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
-						<?php } ?>
-                    </div>
-                    <div class="upqode-widget-popular--content">
-                        <a href="<?php the_permalink(); ?>"><h5><?php the_title(); ?></h5></a>
-                        <div class="upqode-widget-popular--author">
-                            <span><b><?php echo esc_html( get_the_author() ); ?></b></span>
-                            <span><?php echo sprintf( esc_html__( '%s ago', 'upqode' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?></span>
-                        </div>
-                    </div>
-                </div>
-				<?php
+    <img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+    <?php } ?>
+  </div>
+  <div class="upqode-widget-popular--content">
+    <a href="<?php the_permalink(); ?>">
+      <h5><?php the_title(); ?></h5>
+    </a>
+    <div class="upqode-widget-popular--author">
+      <span><b><?php echo esc_html( get_the_author() ); ?></b></span>
+      <span><?php echo sprintf( esc_html__( '%s ago', 'upqode' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?></span>
+    </div>
+  </div>
+</div>
+<?php
 				$counter ++;
 			endwhile; endif;
 			wp_reset_query();
@@ -147,17 +149,16 @@ if ( ! class_exists( 'upqode_top_posts' ) ) {
 				$title = esc_html__( 'Top Picks', 'upqode' );
 			} ?>
 
-            <p>
+<p>
 
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'upqode' ); ?></label>
+  <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'upqode' ); ?></label>
 
-                <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
-                       name="<?php echo $this->get_field_name( 'title' ); ?>" type="text"
-                       value="<?php echo esc_attr( $title ); ?>"/>
+  <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>"
+    name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 
-            </p>
+</p>
 
-			<?php
+<?php
 
 		}
 
@@ -232,3 +233,11 @@ if (!function_exists('upqode_mime_types')) {
 
     add_filter('upload_mimes', 'upqode_mime_types');
 }
+
+
+
+
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
+remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
