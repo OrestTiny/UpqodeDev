@@ -13,7 +13,8 @@
         flex-wrap: wrap;
         position: relative;
         padding: 100px 20px;
-        &::before{
+
+        &::before {
             content: '';
             position: absolute;
             display: block;
@@ -26,7 +27,7 @@
 
     &__heading,
     &__description,
-    &__btn{
+    &__btn {
         position: relative;
         z-index: 10;
     }
@@ -41,7 +42,7 @@
         background: rgba(var(--ca-dark), .5);
     }
 
-    &__btn{
+    &__btn {
         padding: 15px 40px;
         text-transform: uppercase;
         display: inline-block;
@@ -49,7 +50,8 @@
         color: var(--c-light);
         transition: all .3s ease;
         text-decoration: none;
-        &:hover{
+
+        &:hover {
             background: var(--c-dark);
         }
     }

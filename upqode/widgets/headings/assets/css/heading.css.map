@@ -1,1 +1,0 @@
-{"version":3,"sources":["widgets/headings/assets/css/heading.css"],"names":[],"mappings":"AAAA,uBACE,gBAAiB,UAGnB,0BACE,MAAO","file":"heading.css","sourcesContent":[".upqode-heading__title{text-decoration:underline}.upqode-heading__subtitle{color:var(--c-grey)}"]}

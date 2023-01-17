@@ -81,45 +81,9 @@ gulp.task("sass", function () {
 });
 
 gulp.task("sass-widget", function () {
-  return (
-    gulp
-      .src("./upqode/widgets/**/*.scss")
-      // .pipe(sourcemaps.init({ largeFile: true }))
-      .pipe(plumber())
-      .pipe(
-        sass({
-          outputStyle: "expanded",
-          includePaths: ["node_modules"],
-        }).on("error", function (err) {
-          this.emit("end");
-          return notify().write(err);
-        })
-      )
-      .pipe(
-        autoprefixer({
-          browserslistrc: ["> 1%', 'last 3 versions"],
-          cascade: true,
-        })
-      )
-      .pipe(
-        postCSS([
-          mqpacker({
-            sort: sortCSSmq.desktopFirst,
-          }),
-        ])
-      )
-      .pipe(
-        cleanCSS({ level: { 1: { specialComments: 0 } }, compatibility: "ie8" })
-      )
-      // .pipe(sourcemaps.write("."))
-      .pipe(gulp.dest("./upqode/assets/css"))
-      .pipe(size())
-  );
-});
-
-gulp.task("sass-widget", function () {
   return gulp
     .src("./upqode/widgets/**/*.scss")
+    .pipe(debug())
     .pipe(plumber())
     .pipe(
       sass({
@@ -146,11 +110,11 @@ gulp.task("sass-widget", function () {
     .pipe(
       cleanCSS({ level: { 1: { specialComments: 0 } }, compatibility: "ie8" })
     )
+    .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("./upqode/widgets"))
     .pipe(size());
 });
 
-//watcher
 gulp.task("watch", function () {
   gulp.watch("./upqode/assets/css/**/*.scss", gulp.series("sass"));
   gulp.watch("./upqode/widgets/**/*.scss", gulp.series("sass-widget"));
