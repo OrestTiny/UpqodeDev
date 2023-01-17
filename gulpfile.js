@@ -1,71 +1,71 @@
-const gulp = require("gulp"),
-  strip = require("gulp-strip-comments"),
-  babel = require("gulp-babel"),
+const gulp = require('gulp'),
+  strip = require('gulp-strip-comments'),
+  babel = require('gulp-babel'),
   // sourcemaps = require("gulp-sourcemaps"),
-  sass = require("gulp-sass")(require("sass")),
-  autoprefixer = require("gulp-autoprefixer"),
-  size = require("gulp-size"),
-  notify = require("gulp-notify"),
-  uglify = require("gulp-uglify"), // minify file
-  rename = require("gulp-rename"),
-  cleanCSS = require("gulp-clean-css"), // remove all comments
-  plumber = require("gulp-plumber"),
-  postCSS = require("gulp-postcss"),
-  mqpacker = require("css-mqpacker"),
-  sortCSSmq = require("sort-css-media-queries"),
-  debug = require("gulp-debug");
+  sass = require('gulp-sass')(require('sass')),
+  autoprefixer = require('gulp-autoprefixer'),
+  size = require('gulp-size'),
+  notify = require('gulp-notify'),
+  uglify = require('gulp-uglify'), // minify file
+  rename = require('gulp-rename'),
+  cleanCSS = require('gulp-clean-css'), // remove all comments
+  plumber = require('gulp-plumber'),
+  postCSS = require('gulp-postcss'),
+  mqpacker = require('css-mqpacker'),
+  sortCSSmq = require('sort-css-media-queries'),
+  debug = require('gulp-debug');
 
-gulp.task("scripts", function () {
+gulp.task('scripts', function () {
   return (
     gulp
-      .src(["./cda/assets/js/**/*.js", "!./cda/assets/js/**/*.min.js"])
+      .src(['./upqode/assets/js/**/*.js', '!./upqode/assets/js/**/*.min.js'])
       // .pipe(sourcemaps.init())
       .pipe(
         babel({
-          presets: ["@babel/env"],
+          presets: ['@babel/env'],
         })
       )
       .pipe(uglify())
-      .pipe(rename({ suffix: ".min" }))
+      .pipe(rename({ suffix: '.min' }))
       // .pipe(sourcemaps.write("."))
       .pipe(strip())
-      .pipe(gulp.dest("./cda/assets/js"))
+      .pipe(gulp.dest('./upqode/assets/js'))
       .pipe(size())
   );
 });
 
-gulp.task("widgets-scripts", function () {
+gulp.task('widgets-scripts', function () {
   return (
     gulp
-      .src(["./cda/widgets/**/*.js", "!./cda/widgets/**/*.min.js"])
+      .src(['./upqode/widgets/**/*.js', '!./upqode/widgets/**/*.min.js'])
       // .pipe(sourcemaps.init())
       .pipe(
         babel({
-          presets: ["@babel/env"],
+          presets: ['@babel/env'],
         })
       )
       .pipe(uglify())
-      .pipe(rename({ suffix: ".min" }))
+      .pipe(rename({ suffix: '.min' }))
       // .pipe(sourcemaps.write("."))
       .pipe(strip())
-      .pipe(gulp.dest("./cda/widgets/"))
+      .pipe(gulp.dest('./upqode/widgets/'))
       .pipe(size())
   );
 });
 
-gulp.task("sass", function () {
+gulp.task('sass', function () {
   return (
     gulp
-      .src(["./cda/assets/css/**/*.scss"])
+      .src(['./upqode/assets/css/**/*.scss'])
       .pipe(debug())
       // .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(plumber())
       .pipe(
         sass({
-          outputStyle: "compressed",
-          includePaths: ["node_modules"],
-        }).on("error", function (err) {
-          this.emit("end");
+          outputStyle: 'compressed',
+          includePaths: ['node_modules'],
+        }).on('error', function (err) {
+          this.emit('end');
           return notify().write(err);
         })
       )
@@ -82,27 +82,25 @@ gulp.task("sass", function () {
           }),
         ])
       )
-      .pipe(
-        cleanCSS({ level: { 1: { specialComments: 0 } }, compatibility: "ie8" })
-      )
+      .pipe(cleanCSS({ level: { 1: { specialComments: 0 } }, compatibility: 'ie8' }))
       // .pipe(sourcemaps.write("."))
-      .pipe(gulp.dest("./cda/assets/css"))
+      .pipe(gulp.dest('./upqode/assets/css'))
       .pipe(size())
   );
 });
 
-gulp.task("sass-widget", function () {
+gulp.task('sass-widget', function () {
   return (
     gulp
-      .src("./cda/widgets/**/*.scss")
+      .src('./upqode/widgets/**/*.scss')
       // .pipe(sourcemaps.init({ largeFile: true }))
       .pipe(plumber())
       .pipe(
         sass({
-          outputStyle: "expanded",
-          includePaths: ["node_modules"],
-        }).on("error", function (err) {
-          this.emit("end");
+          outputStyle: 'expanded',
+          includePaths: ['node_modules'],
+        }).on('error', function (err) {
+          this.emit('end');
           return notify().write(err);
         })
       )
@@ -119,30 +117,25 @@ gulp.task("sass-widget", function () {
           }),
         ])
       )
-      .pipe(
-        cleanCSS({ level: { 1: { specialComments: 0 } }, compatibility: "ie8" })
-      )
+      .pipe(cleanCSS({ level: { 1: { specialComments: 0 } }, compatibility: 'ie8' }))
       // .pipe(sourcemaps.write("."))
-      .pipe(gulp.dest("./cda/widgets"))
+      .pipe(gulp.dest('./upqode/widgets'))
       .pipe(size())
   );
 });
 
 //watcher
-gulp.task("watch", function () {
+gulp.task('watch', function () {
+  gulp.watch(['./upqode/assets/css/*.scss', './upqode/assets/css/**/*.scss'], gulp.series('sass'));
+  gulp.watch('./upqode/widgets/**/*.scss', gulp.series('sass-widget'));
   gulp.watch(
-    ["./cda/assets/css/*.scss", "./cda/assets/css/**/*.scss"],
-    gulp.series("sass")
-  );
-  gulp.watch("./cda/widgets/**/*.scss", gulp.series("sass-widget"));
-  gulp.watch(
-    ["./cda/widgets/**/*.js", "!./cda/widgets/**/*.min.js"],
-    gulp.series("widgets-scripts")
+    ['./upqode/widgets/**/*.js', '!./upqode/widgets/**/*.min.js'],
+    gulp.series('widgets-scripts')
   );
   gulp.watch(
-    ["./cda/assets/js/*.js", "!./cda/assets/js/**/*.min.js"],
-    gulp.series("scripts")
+    ['./upqode/assets/js/*.js', '!./upqode/assets/js/**/*.min.js'],
+    gulp.series('scripts')
   );
 });
 
-gulp.task("default", gulp.series("watch"));
+gulp.task('default', gulp.series('watch'));
