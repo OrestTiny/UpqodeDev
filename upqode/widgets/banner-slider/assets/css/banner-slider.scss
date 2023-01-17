@@ -1,0 +1,56 @@
+@import "../../../../assets/css/mixin";
+
+.upqode-banner-slider {
+
+    &__content {
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        position: relative;
+        padding: 100px 20px;
+        &::before{
+            content: '';
+            position: absolute;
+            display: block;
+            height: 100%;
+            width: 100%;
+            background: rgba(var(--ca-dark), .5);
+            z-index: 2;
+        }
+    }
+
+    &__heading,
+    &__description,
+    &__btn{
+        position: relative;
+        z-index: 10;
+    }
+
+    &__heading {
+        color: var(--c-light);
+    }
+
+    &__description {
+        color: rgba(var(--ca-light), .8);
+        margin-bottom: 30px;
+        background: rgba(var(--ca-dark), .5);
+    }
+
+    &__btn{
+        padding: 15px 40px;
+        text-transform: uppercase;
+        display: inline-block;
+        background: var(--c-active);
+        color: var(--c-light);
+        transition: all .3s ease;
+        text-decoration: none;
+        &:hover{
+            background: var(--c-dark);
+        }
+    }
+}

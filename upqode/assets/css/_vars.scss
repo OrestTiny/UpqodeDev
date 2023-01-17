@@ -1,0 +1,16 @@
+html,
+.block-editor__container .editor-styles-wrapper {
+	--c-dark: #0A2440;
+	--ca-dark: 10,36,64;
+	--c-grey: #425466;
+	--ca-grey: 66,84,102;
+	--c-light: #fff;
+	--ca-light: 255,255,255;
+	--c-active:  #3BCF8E;
+	--ca-active: 59,207,142;
+	--c-alter: #ED4C78;
+	--c-light-grey: rgba(var(--ca-dark),.08);
+	--c-alter2: #F6F9FC;
+	--font-size: 16px;
+	--t-primary-font-family: "Open Sans", sans-serif;
+}

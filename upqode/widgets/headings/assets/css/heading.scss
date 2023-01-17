@@ -1,0 +1,11 @@
+@import "../../../../assets/css/mixin";
+
+.upqode-heading {
+
+    &__title {
+        text-decoration: underline;
+    }
+    &__subtitle {
+        color: var(--c-grey);
+    }
+}
