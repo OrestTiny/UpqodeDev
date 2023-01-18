@@ -120,25 +120,25 @@ function upqode_enqueue_scripts() {
 	}
 
     wp_enqueue_style( 'upqode-fonts', upqode_fonts_url(), array(), null );
-	wp_enqueue_style( 'upqode-general', UPQODE_T_URI . '/assets/css/general.css' );
+	wp_enqueue_style( 'upqode-general', UPQODE_T_URI . '/assets/css/general.min.css' );
 
 	if ( is_404() ) {
-		wp_enqueue_style( 'upqode-error-page', UPQODE_T_URI . '/assets/css/error-page.css' );
+		wp_enqueue_style( 'upqode-error-page', UPQODE_T_URI . '/assets/css/error-page.min.css' );
 	}
 
 	if (is_archive() || is_author() || is_category() || is_home() || is_tag() || is_search()) {
-		wp_enqueue_style('upqode-blog-list', UPQODE_T_URI . '/assets/css/blog/blog-list.css');
+		wp_enqueue_style('upqode-blog-list', UPQODE_T_URI . '/assets/css/blog/blog-list.min.css');
 	}
 
 	if (is_single() || !(is_archive() || is_author() || is_category() || is_home() || is_tag())) {
-		wp_enqueue_style('upqode-blog-single', UPQODE_T_URI . '/assets/css/blog/blog-single.css');
+		wp_enqueue_style('upqode-blog-single', UPQODE_T_URI . '/assets/css/blog/blog-single.min.css');
 	}
 
 	if (is_active_sidebar('upqode-sidebar')) {
-		wp_enqueue_style('upqode-sidebar', UPQODE_T_URI . '/assets/css/blog/sidebar.css');
+		wp_enqueue_style('upqode-sidebar', UPQODE_T_URI . '/assets/css/blog/sidebar.min.css');
 	}
 
-	wp_enqueue_style( 'upqode-main-style', UPQODE_T_URI . '/assets/css/style.css' );
+	wp_enqueue_style( 'upqode-main-style', UPQODE_T_URI . '/assets/css/style.min.css' );
 	wp_enqueue_style( 'upqode-style', UPQODE_T_URI . '/style.css' );
 
 	// add TinyMCE style
@@ -295,19 +295,17 @@ if ( ! function_exists( 'upqode_add_gutenberg_assets' ) ) {
 
 if ( ! function_exists( 'upqode_search_popup' ) ) {
 	function upqode_search_popup() { ?>
-        <div class="upqode-header--search" id="search-box-<?php echo esc_attr( rand() ); ?>">
-            <div class="upqode-header--search__form-container">
-                <form role="search" method="get" class="upqode-header--search__form"
-                      action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <div class="input-group">
-                        <input type="search" value="<?php echo get_search_query() ?>" name="s"
-                               class="search-field"
-                               placeholder="<?php esc_attr_e( 'Search..', 'upqode' ); ?>"
-                               required>
-                        <button><i class="ion-ios-search-strong open-search"></i></button>
-                    </div>
-                </form>
-            </div>
-        </div>
-	<?php }
+<div class="upqode-header--search" id="search-box-<?php echo esc_attr( rand() ); ?>">
+  <div class="upqode-header--search__form-container">
+    <form role="search" method="get" class="upqode-header--search__form"
+      action="<?php echo esc_url( home_url( '/' ) ); ?>">
+      <div class="input-group">
+        <input type="search" value="<?php echo get_search_query() ?>" name="s" class="search-field"
+          placeholder="<?php esc_attr_e( 'Search..', 'upqode' ); ?>" required>
+        <button><i class="ion-ios-search-strong open-search"></i></button>
+      </div>
+    </form>
+  </div>
+</div>
+<?php }
 }
