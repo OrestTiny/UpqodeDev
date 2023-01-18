@@ -241,3 +241,15 @@ remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
+
+
+
+
+// inline style
+
+function stylesheet_inline(){
+$style = file_get_contents(UPQODE_T_URI . '/assets/css/style.min.css');
+echo  '<style>' . $css . '</style>';
+}
+
+add_action( 'wp_head', 'stylesheet_inline', 10);

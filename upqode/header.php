@@ -9,17 +9,23 @@
  * @package Upqode
  */
 
-?><!DOCTYPE html>
-<html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
-    <head>
-        <meta charset="<?php bloginfo( 'charset' ); ?>">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<?php wp_head(); ?>
-    </head>
-<body <?php body_class(); ?> >
-<!-- MAIN_WRAPPER -->
+?>
+<!DOCTYPE html>
+<html class="no-js" <?php language_attributes(); ?>>
+<!--<![endif]-->
 
-<?php
+<head>
+  <meta charset="<?php bloginfo( 'charset' ); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <?php wp_head(); ?>
+
+
+</head>
+
+<body <?php body_class(); ?>>
+  <!-- MAIN_WRAPPER -->
+
+  <?php
 wp_body_open();
 
 get_template_part( 'template-parts/theme-header' ); ?>
