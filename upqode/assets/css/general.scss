@@ -395,7 +395,7 @@ select {
   }
 }
 
-.fb_iframe_widget > * {
+.fb_iframe_widget>* {
   max-width: 100%;
 }
 
@@ -447,7 +447,7 @@ div.aligncenter {
 }
 
 .no-menu {
-  & > a {
+  &>a {
     color: var(--c-green);
   }
 }
@@ -475,7 +475,7 @@ blockquote {
       margin-right: 5px;
     }
 
-    & > * {
+    &>* {
       font-size: inherit !important;
       font-style: normal;
     }
@@ -655,6 +655,7 @@ iframe[name='advpp_manager'] {
 //GUTENBERG STYLE
 
 .wp-block-table.is-style-stripes {
+
   &.has-subtle-light-gray-background-color tr:nth-child(odd),
   tr:nth-child(odd) {
     background-color: var(--c-light-grey);

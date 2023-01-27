@@ -94,7 +94,7 @@ function upqode_enqueue_scripts()
 		wp_enqueue_script('comment-reply');
 	}
 
-	wp_enqueue_script('upqode-skip-link-focus-fix', UPQODE_T_URI . '/assets/js/lib/skip-link-focus-fix.js', array(), '', true);
+	// wp_enqueue_script('upqode-skip-link-focus-fix', UPQODE_T_URI . '/assets/js/lib/skip-link-focus-fix.js', array(), '', true);
 	wp_enqueue_script('upqode-script', UPQODE_T_URI . '/assets/js/script.min.js', array('jquery'), '', true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
