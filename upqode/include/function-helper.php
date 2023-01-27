@@ -166,14 +166,20 @@ if (!function_exists('upqode_add_rel_preload')) {
 
 
 
-// inline style
 
-// function stylesheet_inline(){
-// $style = file_get_contents(UPQODE_T_URI . '/assets/css/style.min.css');
-// echo  '<style>' . $style . '</style>';
+
+
+
+
+// if (!function_exists('upqode_script_inline')) {
+// 	function upqode_script_inline()
+// 	{
+// 		$js = file_get_contents(UPQODE_T_URI . '/assets/js/script.js');
+
+// 		echo  '<script type="text/javascript" defer>' . $js . '</script>';
+// 	}
 // }
-
-// add_action( 'wp_head', 'stylesheet_inline', 10);
+// add_action('wp_head', 'upqode_script_inline', 10);
 
 
 
