@@ -167,6 +167,28 @@ img {
   outline: 0;
 }
 
+<<<<<<< HEAD
+=======
+a {
+  color: var(--c-dark);
+  outline: 0;
+  transition: all 300ms ease;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: var(--c-green);
+    text-decoration: none;
+  }
+}
+
+strong,
+b {
+  font-weight: 700;
+  color: var(--c-dark);
+}
+
+>>>>>>> 7f5128f91425b7de06cf5c92199c3551a7ce40bc
 ul,
 ol {
   list-style-position: inside;
@@ -341,6 +363,7 @@ select {
   background-position: calc(100% - 10px) 16px;
   background-repeat: no-repeat;
   max-width: 100%;
+
   &:focus {
     outline-offset: 0 !important;
   }
@@ -372,25 +395,29 @@ select {
 .wp-block-calendar {
   font-family: inherit;
   margin-bottom: 30px;
+
   table {
     font-family: inherit;
     margin-bottom: 0;
   }
+
   table th {
     text-align: center;
     font-weight: 600;
     border: 1px solid rgba(var(--ca-dark), 0.15);
   }
+
   table td {
     border: 1px solid rgba(var(--ca-dark), 0.15);
   }
+
   a {
     text-decoration: none;
     font-weight: 600;
   }
 }
 
-.fb_iframe_widget > * {
+.fb_iframe_widget>* {
   max-width: 100%;
 }
 
@@ -442,7 +469,7 @@ div.aligncenter {
 }
 
 .no-menu {
-  & > a {
+  &>a {
     color: var(--c-green);
   }
 }
@@ -464,11 +491,13 @@ blockquote {
     font-style: normal;
     display: block;
     margin-top: 2rem;
+
     &::before {
       content: '\2015';
       margin-right: 5px;
     }
-    & > * {
+
+    &>* {
       font-size: inherit !important;
       font-style: normal;
     }
@@ -493,6 +522,7 @@ h6:first-child {
 .notfound {
   text-decoration: none;
   transition: all 300ms ease;
+
   &:hover {
     opacity: 0.7;
   }
@@ -553,6 +583,7 @@ iframe[name='advpp_manager'] {
     .gallery-item {
       width: -webkit-calc(100% / 3);
       width: calc(100% / 3);
+
       @include xs-size-max {
         width: 50%;
       }
@@ -562,6 +593,7 @@ iframe[name='advpp_manager'] {
   &.gallery-columns-4 {
     .gallery-item {
       width: 25%;
+
       @include xs-size-max {
         width: 50%;
       }
@@ -571,9 +603,11 @@ iframe[name='advpp_manager'] {
   &.gallery-columns-5 {
     .gallery-item {
       width: 20%;
+
       @include sm-size-max {
         width: 25%;
       }
+
       @include xs-size-max {
         width: 50%;
       }
@@ -584,9 +618,11 @@ iframe[name='advpp_manager'] {
     .gallery-item {
       width: -webkit-calc(100% / 6);
       width: calc(100% / 6);
+
       @include sm-size-max {
         width: 25%;
       }
+
       @include xs-size-max {
         width: 50%;
       }
@@ -597,9 +633,11 @@ iframe[name='advpp_manager'] {
     .gallery-item {
       width: -webkit-calc(100% / 7);
       width: calc(100% / 7);
+
       @include sm-size-max {
         width: 25%;
       }
+
       @include xs-size-max {
         width: 50%;
       }
@@ -609,6 +647,7 @@ iframe[name='advpp_manager'] {
   &.gallery-columns-8 {
     .gallery-item {
       width: 12.5%;
+
       @include sm-size-max {
         width: 25%;
       }
@@ -623,9 +662,11 @@ iframe[name='advpp_manager'] {
     .gallery-item {
       width: -webkit-calc(100% / 9);
       width: calc(100% / 9);
+
       @include sm-size-max {
         width: 25%;
       }
+
       @include xs-size-max {
         width: 50%;
       }
@@ -636,6 +677,7 @@ iframe[name='advpp_manager'] {
 //GUTENBERG STYLE
 
 .wp-block-table.is-style-stripes {
+
   &.has-subtle-light-gray-background-color tr:nth-child(odd),
   tr:nth-child(odd) {
     background-color: var(--c-light-grey);
@@ -666,11 +708,13 @@ iframe[name='advpp_manager'] {
 
 .wp-block-pullquote {
   padding: 2rem 0;
+
   blockquote {
     max-width: 950px;
     padding-right: 15px;
     padding-left: 15px;
   }
+
   &.has-background blockquote {
     border: none;
   }
@@ -691,6 +735,7 @@ iframe[name='advpp_manager'] {
 
 .wp-block-cover {
   color: var(--c-light);
+
   a:hover {
     opacity: 0.7;
   }
@@ -708,6 +753,7 @@ iframe[name='advpp_manager'] {
 .wp-block-archives a,
 .wp-block-categories a {
   color: inherit;
+
   &:hover {
     color: var(--c-green);
   }
@@ -716,9 +762,11 @@ iframe[name='advpp_manager'] {
 .wp-block-latest-posts {
   li {
     list-style: none;
+
     a {
       font-weight: 600;
     }
+
     time {
       font-size: 13px;
       color: var(--c-grey);
@@ -732,9 +780,11 @@ iframe[name='advpp_manager'] {
       font-weight: 600;
     }
   }
+
   &__comment-author {
     font-weight: 600;
   }
+
   &__comment-date {
     font-size: 13px;
     margin-top: 6px;
@@ -746,6 +796,7 @@ iframe[name='advpp_manager'] {
   form {
     display: flex;
   }
+
   input[type='search'] {
     border: 1px solid rgba(var(--ca-dark), 0.15);
     line-height: 35px;
@@ -753,6 +804,7 @@ iframe[name='advpp_manager'] {
     width: calc(100% - 57px);
     outline: none;
   }
+
   button {
     border: 1px solid var(--c-green);
     position: relative;
@@ -763,6 +815,7 @@ iframe[name='advpp_manager'] {
     color: var(--c-light);
     cursor: pointer;
     transition: all 0.3s ease;
+
     &:hover {
       border: 1px solid var(--c-dark);
       background: var(--c-dark);
@@ -777,6 +830,7 @@ iframe[name='advpp_manager'] {
 .wp-block-cover .wp-block-cover-text,
 .wp-block-cover h2 {
   font-size: 36px;
+
   * {
     color: inherit;
   }
@@ -791,6 +845,7 @@ iframe[name='advpp_manager'] {
   border-bottom: 1px solid var(--c-dark);
   margin: 1.65em auto;
   clear: both;
+
   &.is-style-wide {
     border-bottom-width: 1px;
   }

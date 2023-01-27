@@ -14,14 +14,12 @@ require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 require_once UPQODE_T_PATH . '/include/class-tgm-plugin-activation.php';
 require_once UPQODE_T_PATH . '/include/custom-header.php';
-require_once UPQODE_T_PATH . '/include/actions-config.php';
+require_once UPQODE_T_PATH . '/include/config-actions.php';
 require_once UPQODE_T_PATH . '/include/helper-function.php';
 require_once UPQODE_T_PATH . '/include/customizer.php';
 
-// Elementor widgets
-if ( defined('ELEMENTOR_VERSION') ) {
-	include_once UPQODE_T_PATH . '/include/elementor-widgets.php';
-}
+
+require_once UPQODE_T_PATH . '/include/config-blog.php';
 
 if ( ! function_exists( 'upqode_setup' ) ) :
 
@@ -67,8 +65,7 @@ endif;
 
 add_action( 'after_setup_theme', 'upqode_setup' );
 
-// Disable REST API link tag
-remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+
 
 
 if ( ! class_exists( 'upqode_top_posts' ) ) {
@@ -185,26 +182,7 @@ if ( ! class_exists( 'upqode_register_widget' ) ) {
 
 add_image_size( 'upqode-post-large', 350, 350, true );
 
-if ( ! function_exists( 'upqode_reading_time' ) ) {
-	function upqode_reading_time( $post_id ) {
-		$content = get_post_field( 'post_content', $post_id );
 
-		$word_count       = str_word_count( strip_tags( $content ) );
-		$readingtime      = ceil( $word_count / 200 );
-		$totalreadingtime = $readingtime . ' min';
-
-		$countKey = 'post_reading_count';
-		$count    = get_post_meta( $post_id, $countKey, true );
-		if ( $count == '' ) {
-			delete_post_meta( $post_id, $countKey );
-			add_post_meta( $post_id, $countKey, $totalreadingtime );
-		} else {
-			update_post_meta( $post_id, $countKey, $totalreadingtime );
-		}
-
-		return $totalreadingtime;
-	}
-}
 
 
 if (!function_exists('upqode_add_rel_preload')) {
@@ -234,9 +212,8 @@ if (!function_exists('upqode_mime_types')) {
     add_filter('upload_mimes', 'upqode_mime_types');
 }
 
-
-
-
+// Disable REST API link tag
+remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_footer', 'wp_enqueue_global_styles', 1 );
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
