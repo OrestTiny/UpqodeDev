@@ -2,6 +2,9 @@
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
+add_action('upqode_search', 'upqode_search_popup', 10);
+add_filter('the_password_form', 'upqode_password_form');
+
 /**
  * Create custom html structure for comments
  */
@@ -138,4 +141,22 @@ if (!function_exists('upqode_search_popup')) {
 					</div>
 				</div>
 		<?php }
+}
+
+
+
+/**
+ * Password form
+ */
+if (!function_exists('upqode_password_form')) {
+	function upqode_password_form($post_id)
+	{
+		$form = '<form action="' . esc_url(site_url('wp-login.php?action=postpass', 'login_post')) . '" method="post" class="form">
+					<h3>' . esc_html__('Enter password below:', 'upqode') . '</h3>
+  				  	<input placeholder="' . esc_attr__("Password:", 'upqode') . '" name="post_password" type="password" size="20" maxlength="20" />
+  				  	<input type="submit" name="' . esc_attr__('Submit', 'upqode') . '" value="' . esc_attr__('Enter', 'upqode') . '" />
+				  </form>';
+
+		return $form;
+	}
 }

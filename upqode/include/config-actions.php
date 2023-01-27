@@ -6,44 +6,25 @@
  * @package Upqode
  */
 
-add_action('tgmpa_register', 'upqode_include_required_plugins');
+
 add_action('widgets_init', 'upqode_widgets_init');
-add_action('after_setup_theme', 'upqode_content_width', 0);
-add_action('wp_enqueue_scripts', 'upqode_enqueue_scripts');
-add_action('enqueue_block_editor_assets', 'upqode_add_gutenberg_assets');
-add_action('upqode_search', 'upqode_search_popup', 10);
-
-/**
- * Adds custom classes to the array of body classes.
- *
- * @param array $classes Classes for the body element.
- *
- * @return array
- */
-function upqode_body_classes($classes)
-{
-	// Adds a class of hfeed to non-singular pages.
-	if (!is_singular()) {
-		$classes[] = 'upqode-page';
-	}
-
-	// Adds a class of no-sidebar when there is no sidebar present.
-	if (!is_active_sidebar('upqode-enable-sidebar')) {
-		$classes[] = 'no-sidebar';
-	}
-
-	return $classes;
-}
-
-add_filter('body_class', 'upqode_body_classes');
+add_action('wp_enqueue_scripts', 'upqode_enqueue_scripts'); // add_action('enqueue_block_editor_assets', 'upqode_add_gutenberg_assets');
+add_action('after_setup_theme', 'upqode_register_nav_menu', 0);
 
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
+ * Register nav menu.
  */
-function upqode_content_width()
-{
-	$GLOBALS['content_width'] = apply_filters('upqode_content_width', 1200);
+
+if (!function_exists('upqode_register_nav_menu')) {
+
+	function upqode_register_nav_menu()
+	{
+		register_nav_menus(array(
+			'primary-menu' => __('Primary Menu', 'upqode'),
+			'footer-menu'  => __('Footer Menu', 'upqode'),
+		));
+	}
 }
 
 
@@ -73,12 +54,6 @@ function upqode_enqueue_scripts()
 	// general settings
 	if ((is_admin())) {
 		return;
-	}
-
-	if (is_page() || is_home()) {
-		$post_id = get_queried_object_id();
-	} else {
-		$post_id = get_the_ID();
 	}
 
 	wp_enqueue_style('upqode-general', UPQODE_T_URI . '/assets/css/general.min.css');
@@ -125,36 +100,4 @@ function upqode_enqueue_scripts()
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
-}
-
-/**
- * Password form
- */
-if (!function_exists('upqode_password_form')) {
-	function upqode_password_form($post_id)
-	{
-		$form = '<form action="' . esc_url(site_url('wp-login.php?action=postpass', 'login_post')) . '" method="post" class="form">
-					<h3>' . esc_html__('Enter password below:', 'upqode') . '</h3>
-  				  	<input placeholder="' . esc_attr__("Password:", 'upqode') . '" name="post_password" type="password" size="20" maxlength="20" />
-  				  	<input type="submit" name="' . esc_attr__('Submit', 'upqode') . '" value="' . esc_attr__('Enter', 'upqode') . '" />
-				  </form>';
-
-		return $form;
-	}
-}
-add_filter('the_password_form', 'upqode_password_form');
-
-
-/**
- * Check need minimal requirements (PHP and WordPress version)
- */
-if (version_compare($GLOBALS['wp_version'], '4.3', '<') || version_compare(PHP_VERSION, '5.3', '<')) {
-	if (!function_exists('upqode_requirements_notice')) {
-		function upqode_requirements_notice()
-		{
-			$message = sprintf(esc_html__('Upqode theme needs minimal WordPress version 4.3 and PHP 5.6<br>You are running version WordPress - %s, PHP - %s.<br>Please upgrade need module and try again.', 'upqode'), $GLOBALS['wp_version'], PHP_VERSION);
-			printf('<div class="notice-warning notice"><p><strong>%s</strong></p></div>', $message);
-		}
-	}
-	add_action('admin_notices', 'upqode_requirements_notice');
 }
