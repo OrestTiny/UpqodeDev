@@ -239,7 +239,7 @@ upqode-header {
         &:hover {
           &.menu-item-has-children::after,
           & > a {
-            color: var(--c-active);
+            color: var(--c-green);
           }
         }
 
@@ -345,7 +345,7 @@ upqode-header {
           &.current_page_item,
           &.current-menu-ancestor {
             & > a {
-              color: var(--c-active) !important;
+              color: var(--c-green) !important;
             }
           }
         }
