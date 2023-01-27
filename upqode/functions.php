@@ -3,9 +3,9 @@
 /**
  * Upqode functions and definitions
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
+ * @package WordPress*
  * @package Upqode
+ * @since Sapid 1.0
  */
 
 defined('UPQODE_T_URI') or define('UPQODE_T_URI', get_template_directory_uri());

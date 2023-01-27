@@ -16,9 +16,12 @@ const gulp = require("gulp"),
   debug = require("gulp-debug");
 
 const path = {
-  scss: ["./upqode/assets/css/*.scss", "!./upqode/assets/css/_*.scss"],
-  scss_watch: ["./upqode/assets/css/*.scss"],
-  scss_inner: ["./upqode/assets/css/**/*.scss", "!./upqode/assets/css/*.scss"],
+  scss: ["./upqode/assets/scss/*.scss", "!./upqode/assets/scss/_*.scss"],
+  scss_watch: ["./upqode/assets/scss/*.scss"],
+  scss_inner: [
+    "./upqode/assets/scss/**/*.scss",
+    "!./upqode/assets/scss/*.scss",
+  ],
   js: [
     "./upqode/assets/js/**/*.js",
     "!./upqode/assets/js/**/*.min.js",
