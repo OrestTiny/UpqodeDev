@@ -1,5 +1,6 @@
 html,
 .block-editor__container .editor-styles-wrapper {
+<<<<<<< HEAD
 	--c-dark: #0A2440;
 	--ca-dark: 10, 36, 64;
 	--c-grey: #425466;
@@ -14,3 +15,15 @@ html,
 	--font-size: 16px;
 	--t-primary-font-family: "Open Sans", sans-serif;
 }
+=======
+  --c-dark: #0a2440;
+  --c-light: #fff;
+  --c-green: #3bcf8e;
+  --c-grey: #425466;
+  --ca-dark: 10, 36, 64;
+  --c-light-grey: #f6f9fc;
+
+  --font-size: 16px;
+  --t-primary-font-family: 'Open Sans', sans-serif;
+}
+>>>>>>> 8233e4b12f775853c4f1c59e0ca9795fb4a69278

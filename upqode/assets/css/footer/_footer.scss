@@ -1,0 +1,16 @@
+@import '../mixin';
+
+.upqode-footer {
+  flex: 0 1 auto;
+  width: 100%;
+  max-width: 100%;
+  background: var(--c-dark);
+
+  &--copyright {
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 600;
+    color: var(--c-light);
+  }
+}
