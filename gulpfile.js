@@ -18,12 +18,17 @@ const gulp = require("gulp"),
 const path = {
   scss: ["./upqode/assets/css/*.scss"],
   scss_inner: ["./upqode/assets/css/**/*.scss", "!./upqode/assets/css/*.scss"],
-  js: ["./upqode/assets/js/**/*.js", "!./upqode/assets/js/**/*.min.js"],
+  js: [
+    "./upqode/assets/js/**/*.js",
+    "!./upqode/assets/js/**/*.min.js",
+    "!./upqode/assets/js/lib{,/**}/*.js",
+  ],
 };
 
 gulp.task("scripts", function () {
   return gulp
     .src(path.js)
+    .pipe(debug({ title: "Focus:" }))
     .pipe(
       babel({
         presets: ["@babel/env"],
@@ -39,6 +44,7 @@ gulp.task("scripts", function () {
 gulp.task("sass", function () {
   return gulp
     .src(path.scss)
+    .pipe(debug({ title: "Focus:" }))
     .pipe(plumber())
     .pipe(
       sass({
@@ -62,13 +68,13 @@ gulp.task("sass", function () {
     .pipe(autoprefixer("last 2 version", "> 2%", "ie 6", "ie 5"))
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("./upqode/assets/css"))
-    .pipe(debug({ title: "Quantity:" }))
     .pipe(size({ title: "Size" }));
 });
 
 gulp.task("sass-inner", function () {
   return gulp
     .src(path.scss_inner)
+    .pipe(debug({ title: "Focus:" }))
     .pipe(plumber())
     .pipe(
       sass({
@@ -92,7 +98,6 @@ gulp.task("sass-inner", function () {
     .pipe(autoprefixer("last 2 version", "> 2%", "ie 6", "ie 5"))
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("./upqode/assets/css"))
-    .pipe(debug({ title: "Quantity:" }))
     .pipe(size({ title: "Size" }));
 });
 
