@@ -16,7 +16,8 @@ const gulp = require("gulp"),
   debug = require("gulp-debug");
 
 const path = {
-  scss: ["./upqode/assets/css/*.scss"],
+  scss: ["./upqode/assets/css/*.scss", "!./upqode/assets/css/_*.scss"],
+  scss_watch: ["./upqode/assets/css/*.scss"],
   scss_inner: ["./upqode/assets/css/**/*.scss", "!./upqode/assets/css/*.scss"],
   js: [
     "./upqode/assets/js/**/*.js",
@@ -102,7 +103,7 @@ gulp.task("sass-inner", function () {
 });
 
 gulp.task("watch", function () {
-  gulp.watch(path.scss, gulp.series("sass"));
+  gulp.watch(path.scss_watch, gulp.series("sass"));
   gulp.watch(path.scss_inner, gulp.series("sass-inner"));
   gulp.watch(path.js, gulp.series("scripts"));
 });
