@@ -9,7 +9,7 @@
                 <nav class="upqode-header__menu">
                     <?php if (has_nav_menu('primary-menu')) {
                         $args = array(
-                            'container' => '',
+                            'container_class' => 'upqode-header__menu-wrapper',
                             'menu_class' => 'header-menu',
                         );
                         $args['theme_location'] = 'primary-menu';
@@ -19,7 +19,9 @@
                     } ?>
                 </nav>
                 <button class="upqode-header__burger">
-                    <span></span>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                 </button>
             </div>
         </div>

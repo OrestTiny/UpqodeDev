@@ -247,9 +247,9 @@ remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
 
 // inline style
 
-function stylesheet_inline(){
-$style = file_get_contents(UPQODE_T_URI . '/assets/css/style.min.css');
-echo  '<style>' . $css . '</style>';
-}
+// function stylesheet_inline(){
+// $style = file_get_contents(UPQODE_T_URI . '/assets/css/style.min.css');
+// echo  '<style>' . $css . '</style>';
+// }
 
-add_action( 'wp_head', 'stylesheet_inline', 10);
+// add_action( 'wp_head', 'stylesheet_inline', 10);

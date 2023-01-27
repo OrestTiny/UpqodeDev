@@ -6,6 +6,7 @@
   padding: 0;
   outline: none !important;
   -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
 
 html {
@@ -82,6 +83,34 @@ h6 {
   font-size: 15px;
 }
 
+a {
+  color: var(--c-dark);
+  outline: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--c-green);
+  }
+}
+
+strong,
+b {
+  font-weight: 700;
+  color: var(--c-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
 // CHECK
 .wp-caption {
   margin-bottom: 25px;
@@ -101,11 +130,6 @@ h6 {
   line-height: 1.5;
   color: var(--c-grey);
   margin-top: 10px;
-}
-
-.no-scroll {
-  overflow: hidden;
-  height: 100vh;
 }
 
 ::-moz-selection {
@@ -143,24 +167,6 @@ h6 {
   outline: 0;
 }
 
-a {
-  color: var(--c-dark);
-  outline: 0;
-  transition: all 300ms ease;
-  text-decoration: none;
-  &:hover,
-  &:focus {
-    color: var(--c-green);
-    text-decoration: none;
-  }
-}
-
-strong,
-b {
-  font-weight: 700;
-  color: var(--c-dark);
-}
-
 ul,
 ol {
   list-style-position: inside;
@@ -196,11 +202,6 @@ p.has-huge-font-size {
 
 /* typography
 ---------------------------*/
-
-img {
-  max-width: 100%;
-  height: auto;
-}
 
 .overflow-full {
   overflow: hidden;
