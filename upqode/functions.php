@@ -13,11 +13,8 @@ defined('UPQODE_T_PATH') or define('UPQODE_T_PATH', get_template_directory());
 
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
-
-require_once UPQODE_T_PATH . '/include/custom-header.php';
 require_once UPQODE_T_PATH . '/include/config-actions.php';
 require_once UPQODE_T_PATH . '/include/customizer.php';
-
 
 require_once UPQODE_T_PATH . '/include/function-helper.php';
 require_once UPQODE_T_PATH . '/include/function-action.php';
@@ -27,9 +24,6 @@ if (!function_exists('upqode_setup')) :
 
 	function upqode_setup()
 	{
-
-
-
 
 		add_theme_support('customize-selective-refresh-widgets');
 		add_theme_support('automatic-feed-links');
