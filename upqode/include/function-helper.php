@@ -57,7 +57,7 @@ if (!function_exists('upqode_comment')) {
 								</div>
 							</div>
 						</div>
-		<?php
+				<?php
 				break;
 		endswitch;
 	}
@@ -75,4 +75,67 @@ if (!function_exists('upqode_excerpt_more')) {
 	}
 
 	add_filter('excerpt_more', 'upqode_excerpt_more');
+}
+
+
+
+if (!function_exists('upqode_mime_types')) {
+	function upqode_mime_types($mimes)
+	{
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
+
+	add_filter('upload_mimes', 'upqode_mime_types');
+}
+
+
+
+if (!function_exists('upqode_add_rel_preload')) {
+	function upqode_add_rel_preload($html, $handle, $href, $media)
+	{
+
+		if (is_admin()) {
+			return $html;
+		}
+		$html = <<<EOT
+		<link rel="preload stylesheet preconnect" as="style" id="$handle" href="$href" type="text/css" media="$media" crossorigin />
+		EOT;
+		return $html;
+	}
+}
+
+
+
+// inline style
+
+// function stylesheet_inline(){
+// $style = file_get_contents(UPQODE_T_URI . '/assets/css/style.min.css');
+// echo  '<style>' . $style . '</style>';
+// }
+
+// add_action( 'wp_head', 'stylesheet_inline', 10);
+
+
+
+
+
+/**
+ * Search popup
+ */
+
+if (!function_exists('upqode_search_popup')) {
+	function upqode_search_popup()
+	{ ?>
+				<div class="upqode-header--search" id="search-box-<?php echo esc_attr(rand()); ?>">
+					<div class="upqode-header--search__form-container">
+						<form role="search" method="get" class="upqode-header--search__form" action="<?php echo esc_url(home_url('/')); ?>">
+							<div class="input-group">
+								<input type="search" value="<?php echo get_search_query() ?>" name="s" class="search-field" placeholder="<?php esc_attr_e('Search..', 'upqode'); ?>" required>
+								<button><i class="ion-ios-search-strong open-search"></i></button>
+							</div>
+						</form>
+					</div>
+				</div>
+		<?php }
 }

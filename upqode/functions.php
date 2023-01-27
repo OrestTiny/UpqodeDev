@@ -16,10 +16,10 @@ require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 require_once UPQODE_T_PATH . '/include/custom-header.php';
 require_once UPQODE_T_PATH . '/include/config-actions.php';
-require_once UPQODE_T_PATH . '/include/helper-function.php';
 require_once UPQODE_T_PATH . '/include/customizer.php';
 
 
+require_once UPQODE_T_PATH . '/include/function-helper.php';
 require_once UPQODE_T_PATH . '/include/function-post.php';
 require_once UPQODE_T_PATH . '/include/optimization-html.php';
 
@@ -71,163 +71,7 @@ add_action('after_setup_theme', 'upqode_setup');
 
 
 
-if (!class_exists('upqode_top_posts')) {
-	class upqode_top_posts extends WP_Widget
-	{
-
-		function __construct()
-		{
-
-			parent::__construct(
-
-				'upqode_top_posts',
-
-				esc_html__('Upqode Popular Posts', 'upqode'),
-
-				array('description' => __('Popular posts.', 'upqode'),)
-
-			);
-		}
-
-		public function widget($args, $instance)
-		{
-
-			$title = apply_filters('widget_title', $instance['title']);
-
-			echo $args['before_widget'];
-
-			if (!empty($title)) { ?>
-				<h4 class="widget-title"><?php echo esc_html($title); ?></h4>
-				<?php }
 
 
-			$popular = new WP_Query(array(
-				'posts_per_page' => 4,
-				'meta_key'       => 'post_views_count',
-				'orderby'        => 'meta_value_num',
-				'order'          => 'DESC'
-			));
-
-			$counter = 1;
-
-			if ($popular->have_posts()) : while ($popular->have_posts()) : $popular->the_post();
-					$image_id  = get_post_thumbnail_id(get_the_ID());
-					$top_class = !empty($image_id) ? 'image' : ''; ?>
-					<div class="upqode-widget-popular--item">
-						<div class="upqode-widget-popular--image <?php echo esc_attr($top_class); ?>">
-							<span><?php echo esc_html($counter); ?></span>
-							<?php if ($image_id) {
-								$image     = wp_get_attachment_image_url($image_id, 'thumbnail');
-								$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true); ?>
-
-								<img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($image_alt); ?>">
-							<?php } ?>
-						</div>
-						<div class="upqode-widget-popular--content">
-							<a href="<?php the_permalink(); ?>">
-								<h5><?php the_title(); ?></h5>
-							</a>
-							<div class="upqode-widget-popular--author">
-								<span><b><?php echo esc_html(get_the_author()); ?></b></span>
-								<span><?php echo sprintf(esc_html__('%s ago', 'upqode'), human_time_diff(get_the_time('U'), current_time('timestamp'))); ?></span>
-							</div>
-						</div>
-					</div>
-			<?php
-					$counter++;
-				endwhile;
-			endif;
-			wp_reset_query();
-
-
-			echo $args['after_widget'];
-		}
-
-		public function form($instance)
-		{
-
-			if (isset($instance['title'])) {
-				$title = $instance['title'];
-			} else {
-				$title = esc_html__('Top Picks', 'upqode');
-			} ?>
-
-			<p>
-
-				<label for="<?php echo $this->get_field_id('title'); ?>"><?php esc_html_e('Title:', 'upqode'); ?></label>
-
-				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
-
-			</p>
-
-<?php
-
-		}
-
-		public function update($new_instance, $old_instance)
-		{
-
-			$instance = array();
-
-			$instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
-
-			return $instance;
-		}
-	}
-}
-
-if (!class_exists('upqode_register_widget')) {
-	function upqode_register_widget()
-	{
-		register_widget('upqode_top_posts');
-	}
-
-	add_action('widgets_init', 'upqode_register_widget');
-}
-
-add_image_size('upqode-post-large', 350, 350, true);
-
-
-
-
-if (!function_exists('upqode_add_rel_preload')) {
-	function upqode_add_rel_preload($html, $handle, $href, $media)
-	{
-
-		if (is_admin()) {
-			return $html;
-		}
-
-		$html = <<<EOT
-<link rel="preload stylesheet preconnect" as="style" id="$handle" href="$href" type="text/css" media="$media" crossorigin />
-EOT;
-
-
-		return $html;
-	}
-}
-
-if (!function_exists('upqode_mime_types')) {
-	function upqode_mime_types($mimes)
-	{
-		$mimes['svg'] = 'image/svg+xml';
-		return $mimes;
-	}
-
-	add_filter('upload_mimes', 'upqode_mime_types');
-}
 
 // Disable REST API link tag
-
-
-
-
-
-// inline style
-
-// function stylesheet_inline(){
-// $style = file_get_contents(UPQODE_T_URI . '/assets/css/style.min.css');
-// echo  '<style>' . $css . '</style>';
-// }
-
-// add_action( 'wp_head', 'stylesheet_inline', 10);
