@@ -62,8 +62,8 @@ gulp.task("sass", function () {
     .pipe(autoprefixer("last 2 version", "> 2%", "ie 6", "ie 5"))
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("./upqode/assets/css"))
-    .pipe(debug({ title: "Quantity:", showFiles: false }))
-    .pipe(size({ title: "Size", showFiles: true }));
+    .pipe(debug({ title: "Quantity:" }))
+    .pipe(size({ title: "Size" }));
 });
 
 gulp.task("sass-inner", function () {
@@ -92,8 +92,8 @@ gulp.task("sass-inner", function () {
     .pipe(autoprefixer("last 2 version", "> 2%", "ie 6", "ie 5"))
     .pipe(rename({ suffix: ".min" }))
     .pipe(gulp.dest("./upqode/assets/css"))
-    .pipe(debug({ title: "Quantity:", showFiles: false }))
-    .pipe(size({ title: "Size", showFiles: true }));
+    .pipe(debug({ title: "Quantity:" }))
+    .pipe(size({ title: "Size" }));
 });
 
 gulp.task("watch", function () {
