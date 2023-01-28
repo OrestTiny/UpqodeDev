@@ -1,11 +1,4 @@
 .upqode-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 15px 0;
-  max-width: 100%;
-  z-index: 101;
 
   @include xs-size-max {
     padding: 10px 0;

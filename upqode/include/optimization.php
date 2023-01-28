@@ -29,3 +29,25 @@ add_action('get_header', function () {
 		ob_start('HTML_Compression_finish');
 	endif;
 });
+
+
+
+//Disable gutenberg style in Front
+
+function wps_deregister_styles()
+{
+	wp_dequeue_style('classic-theme-styles-css'); // Wordpress core
+	wp_dequeue_style('wp-block-library'); // Wordpress core
+	wp_dequeue_style('wp-block-library-theme'); // Wordpress core
+	wp_dequeue_style('wc-block-style'); // WooCommerce
+	wp_dequeue_style('storefront-gutenberg-blocks'); // Storefront theme
+}
+add_action('wp_print_styles', 'wps_deregister_styles', 100);
+
+
+
+function wps_deregister_script()
+{
+	wp_dequeue_style('classic-theme-styles');
+}
+add_action('wp_enqueue_scripts', 'wps_deregister_script', 20);

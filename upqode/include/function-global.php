@@ -1,6 +1,5 @@
 <?php
 
-
 if (!function_exists('upqode_reading_time')) {
 	function upqode_reading_time($post_id)
 	{
@@ -22,9 +21,6 @@ if (!function_exists('upqode_reading_time')) {
 		return $totalreadingtime;
 	}
 }
-
-
-
 
 // Blog post Sharing
 if (!function_exists('upqode_sharing_icon_links')) {

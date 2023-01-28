@@ -61,16 +61,16 @@ function upqode_enqueue_scripts()
 		wp_enqueue_style('upqode-error-page', UPQODE_T_URI . '/assets/css/error-page.min.css');
 	}
 
-	if (is_archive() || is_author() || is_category() || is_home() || is_tag() || is_search()) {
+	if (!is_home() && (is_archive() || is_category() || is_tag() || is_search())) {
 		wp_enqueue_style('upqode-blog-list', UPQODE_T_URI . '/assets/css/blog/blog-list.min.css');
 	}
 
-	if (is_single() || !(is_archive() || is_author() || is_category() || is_home() || is_tag())) {
+	if (is_single() && !(is_archive() || is_author() || is_category() || is_home() || is_tag())) {
 		wp_enqueue_style('upqode-blog-single', UPQODE_T_URI . '/assets/css/blog/blog-single.min.css');
 	}
 
 	if (is_active_sidebar('upqode-sidebar')) {
-		wp_enqueue_style('upqode-sidebar', UPQODE_T_URI . '/assets/css/blog/sidebar.min.css');
+		// wp_enqueue_style('upqode-sidebar', UPQODE_T_URI . '/assets/css/blog/sidebar.min.css');
 	}
 
 	wp_enqueue_style('upqode-main-style', UPQODE_T_URI . '/assets/css/style.min.css');
