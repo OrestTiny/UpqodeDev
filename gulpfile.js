@@ -112,3 +112,7 @@ gulp.task("watch", function () {
 });
 
 gulp.task("default", gulp.series("watch"));
+
+// gulp.task("default", async () => {
+//   gulp.series("watch");
+// });
