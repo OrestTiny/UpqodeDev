@@ -26,7 +26,7 @@ $posts = new WP_Query($args);
 
 if ($posts->have_posts()) :
 
-    get_template_part('template-parts/blog', 'list');
+    get_template_part('template-parts/theme', 'blog');
 else : ?>
 
     <div class="upqode-blog--wrapper upqode-blog--search-page">
