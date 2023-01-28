@@ -25,22 +25,6 @@ if (!function_exists('upqode_reading_time')) {
 
 
 
-/**
- * 
- * @return HTML
- */
-function upqode_button($btn_text = '', $btn_link = '')
-{
-	$btn_text = get_option($btn_text);
-	$btn_link = get_option($btn_link);
-	$btn = '';
-	if (!empty($btn_text)) {
-		$btn = '<a href="' . esc_url($btn_link) . '" class="uthr-header-btn">' . esc_html($btn_text) . '</a>';
-	}
-	return $btn;
-}
-
-
 
 // Blog post Sharing
 if (!function_exists('upqode_sharing_icon_links')) {
