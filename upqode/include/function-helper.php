@@ -116,7 +116,7 @@ if (!function_exists('upqode_comment')) {
 								</div>
 							</div>
 						</div>
-				<?php
+		<?php
 				break;
 		endswitch;
 	}
@@ -161,64 +161,5 @@ if (!function_exists('upqode_add_rel_preload')) {
 		<link rel="preload stylesheet preconnect" as="style" id="$handle" href="$href" type="text/css" media="$media" crossorigin />
 		EOT;
 		return $html;
-	}
-}
-
-
-
-
-
-
-
-
-// if (!function_exists('upqode_script_inline')) {
-// 	function upqode_script_inline()
-// 	{
-// 		$js = file_get_contents(UPQODE_T_URI . '/assets/js/script.js');
-
-// 		echo  '<script type="text/javascript" defer>' . $js . '</script>';
-// 	}
-// }
-// add_action('wp_head', 'upqode_script_inline', 10);
-
-
-
-
-
-/**
- * Search popup
- */
-
-if (!function_exists('upqode_search_popup')) {
-	function upqode_search_popup()
-	{ ?>
-				<div class="upqode-header--search" id="search-box-<?php echo esc_attr(rand()); ?>">
-					<div class="upqode-header--search__form-container">
-						<form role="search" method="get" class="upqode-header--search__form" action="<?php echo esc_url(home_url('/')); ?>">
-							<div class="input-group">
-								<input type="search" value="<?php echo get_search_query() ?>" name="s" class="search-field" placeholder="<?php esc_attr_e('Search..', 'upqode'); ?>" required>
-								<button><i class="ion-ios-search-strong open-search"></i></button>
-							</div>
-						</form>
-					</div>
-				</div>
-		<?php }
-}
-
-
-
-/**
- * Password form
- */
-if (!function_exists('upqode_password_form')) {
-	function upqode_password_form($post_id)
-	{
-		$form = '<form action="' . esc_url(site_url('wp-login.php?action=postpass', 'login_post')) . '" method="post" class="form">
-					<h3>' . esc_html__('Enter password below:', 'upqode') . '</h3>
-  				  	<input placeholder="' . esc_attr__("Password:", 'upqode') . '" name="post_password" type="password" size="20" maxlength="20" />
-  				  	<input type="submit" name="' . esc_attr__('Submit', 'upqode') . '" value="' . esc_attr__('Enter', 'upqode') . '" />
-				  </form>';
-
-		return $form;
 	}
 }

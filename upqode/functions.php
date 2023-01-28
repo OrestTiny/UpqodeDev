@@ -21,5 +21,5 @@ defined('UPQODE_T_PATH') or define('UPQODE_T_PATH', get_template_directory());
 require_once UPQODE_T_PATH . '/include/config-actions.php';
 require_once UPQODE_T_PATH . '/include/customizer.php';
 require_once UPQODE_T_PATH . '/include/function-helper.php';
-require_once UPQODE_T_PATH . '/include/function-action.php';
+require_once UPQODE_T_PATH . '/include/function-global.php';
 require_once UPQODE_T_PATH . '/include/optimization.php';
