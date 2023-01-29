@@ -12,7 +12,7 @@
     --page-bg: var(--c-light-grey);
     --post-br: 7px;
     --post-cat-bg: var(--c-green);
-    --post-bg: var(--c-light);
+    --post-bg: $light;
   }
 
   &--small-title {
@@ -76,15 +76,15 @@
     line-height: 1.5;
     border: none;
     background-color: var(--c-green);
-    color: var(--c-light);
+    color: $light;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
     border-radius: var(--post-br);
 
     &:hover {
-      background-color: var(--c-dark);
-      color: var(--c-light);
+      background-color: $dark;
+      color: $light;
     }
   }
 }

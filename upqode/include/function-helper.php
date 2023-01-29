@@ -163,3 +163,21 @@ if (!function_exists('upqode_add_rel_preload')) {
 		return $html;
 	}
 }
+
+
+
+if (!function_exists('upqode_fix_svg_size_attributes')) {
+	function upqode_fix_svg_size_attributes($out, $id)
+	{
+		$image_url = wp_get_attachment_url($id);
+		$file_ext = pathinfo($image_url, PATHINFO_EXTENSION);
+
+		if (is_admin() || 'svg' !== $file_ext) {
+			return false;
+		}
+
+		return array($image_url, null, null, false);
+	}
+
+	add_filter('image_downsize', 'upqode_fix_svg_size_attributes', 10, 2);
+}

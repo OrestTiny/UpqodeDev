@@ -2,24 +2,24 @@
 
 
 
-  &--overlay {
-    @include md-min {
-      display: none !important;
-    }
+  // &--overlay {
+  //   @include sm-size-min {
+  //     display: none !important;
+  //   }
 
-    @include md-max {
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      opacity: 0;
-      background: $light;
-      transform: translate(200%);
-      transition: 0.3s linear;
-      z-index: 100;
-    }
-  }
+  //   @include sm-size-max {
+  //     position: fixed;
+  //     left: 0;
+  //     top: 0;
+  //     right: 0;
+  //     bottom: 0;
+  //     opacity: 0;
+  //     background: $light;
+  //     transform: translate(200%);
+  //     transition: 0.3s linear;
+  //     z-index: 100;
+  //   }
+  // }
 
   &__wrapper {
     display: flex;
@@ -38,7 +38,7 @@
       text-decoration: none;
       z-index: 101;
 
-      @include md-max {
+      @include xs-size-max {
         font-size: 26px;
       }
     }
@@ -51,7 +51,7 @@
           padding: 0;
         }
 
-        @include md-min {
+        @include sm-size-min {
           display: flex;
           flex-wrap: wrap;
           align-items: center;
@@ -217,13 +217,13 @@
           }
         }
 
-        @include md-max {
+        @include sm-size-max {
           display: none;
         }
       }
 
       .header--no-menu {
-        @include md-max {
+        @include sm-size-max {
           visibility: hidden;
           transform: translateX(200%);
           transition: transform 0.4s linear;
@@ -231,7 +231,7 @@
         }
       }
 
-      @include md-max {
+      @include sm-size-max {
         position: absolute;
         display: flex;
         flex-direction: column;
@@ -247,7 +247,7 @@
         background: transparent;
         z-index: 102;
 
-        @include md-max {
+        @include xs-size-max {
           height: calc(100vh - 120%);
         }
 
@@ -285,7 +285,7 @@
                 height: 40px;
                 z-index: 103;
 
-                @include md-max {
+                @include xs-size-max {
                   right: -2px;
                   width: 25px;
                   height: 25px;
@@ -368,11 +368,11 @@
     }
 
     .upqode-header__burger {
-      @include md-min {
+      @include sm-size-min {
         display: none !important;
       }
 
-      @include md-max {
+      @include sm-size-max {
         display: inline-flex;
         position: relative;
         width: 35px;
@@ -430,7 +430,7 @@
         }
       }
 
-      @include md-max {
+      @include xs-size-max {
         width: 30px;
         height: 30px;
         padding: 0;
@@ -469,7 +469,7 @@
   }
 
   &.menu-open {
-    @include md-max {
+    @include sm-size-max {
       .upqode-header--overlay {
         opacity: 1;
         transform: translate(0);

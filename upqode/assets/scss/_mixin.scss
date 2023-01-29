@@ -1,47 +1,130 @@
-@mixin xs-size-max {
-  @media screen and (max-width: 767px) {
+$xs: 400px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+@mixin xs-max {
+  @media screen and (max-width: ($xs - 1)) {
     @content;
   }
 }
 
-@mixin xs-size-min {
-  @media screen and (min-width: 768px) {
+@mixin xs-min {
+  @media screen and (min-width: $xs) {
     @content;
   }
 }
 
-@mixin sm-size-max {
-  @media screen and (max-width: 1024px) {
+@mixin sm-max {
+  @media screen and (max-width: ($sm - 1)) {
     @content;
   }
 }
 
-@mixin sm-size-min {
-  @media screen and (min-width: 1025px) {
+@mixin sm-min {
+  @media screen and (min-width: $sm) {
     @content;
   }
 }
 
-@mixin md-size-max {
-  @media screen and (max-width: 1199px) {
+@mixin md-max {
+  @media screen and (max-width: ($md - 1)) {
     @content;
   }
 }
 
-@mixin md-size-min {
-  @media screen and (min-width: 1200px) {
+@mixin md-min {
+  @media screen and (min-width: $md) {
     @content;
   }
 }
 
-@mixin lg-size-max {
-  @media screen and (max-width: 1440px) {
+@mixin lg-max {
+  @media screen and (max-width: ($lg - 1)) {
     @content;
   }
 }
 
-@mixin lg-size-min {
-  @media screen and (min-width: 1441px) {
+@mixin lg-min {
+  @media screen and (min-width: $lg) {
     @content;
   }
 }
+
+@mixin xl-max {
+  @media screen and (max-width: ($xl - 1)) {
+    @content;
+  }
+}
+
+@mixin xl-min {
+  @media screen and (min-width: $xl) {
+    @content;
+  }
+}
+
+@mixin xxl-max {
+  @media screen and (max-width: ($xxl - 1)) {
+    @content;
+  }
+}
+
+@mixin xxl-min {
+  @media screen and (min-width: $xxl) {
+    @content;
+  }
+}
+
+
+
+
+
+// @mixin xs-size-max {
+//   @media screen and (max-width: 767px) {
+//     @content;
+//   }
+// }
+
+// @mixin xs-size-min {
+//   @media screen and (min-width: 768px) {
+//     @content;
+//   }
+// }
+
+// @mixin sm-size-max {
+//   @media screen and (max-width: 1024px) {
+//     @content;
+//   }
+// }
+
+// @mixin sm-size-min {
+//   @media screen and (min-width: 1025px) {
+//     @content;
+//   }
+// }
+
+// @mixin md-size-max {
+//   @media screen and (max-width: 1199px) {
+//     @content;
+//   }
+// }
+
+// @mixin md-size-min {
+//   @media screen and (min-width: 1200px) {
+//     @content;
+//   }
+// }
+
+// @mixin lg-size-max {
+//   @media screen and (max-width: 1440px) {
+//     @content;
+//   }
+// }
+
+// @mixin lg-size-min {
+//   @media screen and (min-width: 1441px) {
+//     @content;
+//   }
+// }
