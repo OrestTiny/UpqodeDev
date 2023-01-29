@@ -14,6 +14,17 @@ $footer_text = esc_html__(' &copy;', 'upqode') . date('Y') . ' ' . get_bloginfo(
                 <a href="https://upqode.com/" rel="noopener" target="_blank">UPQODE</a>
             </div>
         </div>
+        <div class="upqode-footer__menu">
+            <?php if (has_nav_menu('footer-menu')) {
+                $args = array(
+                    'container' => false,
+                    'menu_class' => 'footer-menu',
+                );
+                $args['theme_location'] = 'footer-menu';
+                wp_nav_menu($args);
+            } ?>
+        </div>
+        <div class="upqode-footer__copyright"><?php echo wp_kses($footer_text, 'upqode'); ?></div>
     </div>
 </footer>
 

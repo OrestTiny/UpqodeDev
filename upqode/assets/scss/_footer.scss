@@ -6,5 +6,64 @@
 
   a {
     color: $light;
+    flex: 0 1 auto;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 100%;
+    background: var(--c-dark);
+
+    &__menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .footer-menu {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 0 40px 0;
+        padding: 0;
+        gap: 15px 30px;
+        list-style: none;
+
+        @include xs-max {
+          margin-bottom: 30px;
+          flex-direction: column;
+        }
+
+        ul {
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+
+        li {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          a {
+            display: inline-block;
+            color: var(--c-light);
+            margin-bottom: 10px;
+
+            &:hover {
+              color: var(--c-green);
+            }
+          }
+
+          &>ul {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+
+    &__copyright {
+      margin: 0 auto;
+      text-align: center;
+      font-weight: 600;
+      color: var(--c-light);
+    }
   }
 }

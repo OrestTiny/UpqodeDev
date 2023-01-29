@@ -1,4 +1,6 @@
 .upqode-header {
+  position: relative;
+  z-index: 101;
 
 
 
@@ -93,7 +95,7 @@
             }
 
             &:hover {
-              &>.sub-menu {
+              & > .sub-menu {
                 opacity: 1;
                 visibility: visible;
               }
@@ -108,7 +110,7 @@
             }
           }
 
-          &>li {
+          & > li {
             display: inline-block;
             position: relative;
             font-weight: 600;
@@ -124,7 +126,7 @@
               line-height: 25px;
             }
 
-            &>a {
+            & > a {
               padding: 10px;
               will-change: color;
               transition: color 0.3s ease-in-out;
@@ -134,7 +136,7 @@
               }
             }
 
-            &>ul.sub-menu {
+            & > ul.sub-menu {
               position: absolute;
               top: calc(100% - 2px);
               left: 50%;
@@ -147,9 +149,10 @@
               transform: translateX(-50%);
               background-color: $light;
               border-radius: 5px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
               z-index: 102;
 
-              &>li {
+              & > li {
                 margin-bottom: 5px;
 
                 &:last-of-type {
@@ -161,15 +164,15 @@
                 }
 
                 .sub-menu {
-                  display: block !important;
                   visibility: hidden;
                   opacity: 0;
                   transition: opacity 0.5s ease-in-out;
+                  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
                 }
 
                 &.menu-item-has-children {
                   &:hover {
-                    &>.sub-menu {
+                    & > .sub-menu {
                       visibility: visible;
                       opacity: 1;
                     }
@@ -191,7 +194,7 @@
                 .sub-menu {
                   position: absolute;
                   top: 0;
-                  left: calc(100% - 5px);
+                  left: calc(100% - 8px);
                   min-width: 150px;
                   max-width: 600px;
                   width: max-content;
@@ -205,7 +208,7 @@
 
                   .menu-item-has-children {
                     &:hover {
-                      &>.sub-menu {
+                      & > .sub-menu {
                         visibility: visible;
                         opacity: 1;
                       }
@@ -313,7 +316,7 @@
               }
             }
 
-            &>li {
+            & > li {
               display: block;
               position: relative;
               font-size: 22px;
@@ -325,12 +328,20 @@
                 border-bottom: none;
               }
 
-              &>ul {
-                display: none;
+              ul {
+                overflow: hidden;
+                transition: height 0.25s ease;
+
+                &:not(.active) {
+                  display: none;
+                }
+              }
+
+              & > ul {
                 flex-direction: column;
                 justify-content: space-between;
 
-                &>li {
+                & > li {
                   position: relative;
                   padding: 5px 0;
 
@@ -343,19 +354,13 @@
                     line-height: 25px;
                   }
 
-                  &>ul {
-                    display: none;
-
-                    &>li {
+                  & > ul {
+                    & > li {
                       position: relative;
                       padding: 5px 0;
 
                       &:first-of-type {
                         padding-top: 8px;
-                      }
-
-                      &>ul {
-                        display: none;
                       }
                     }
                   }
