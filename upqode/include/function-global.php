@@ -1,5 +1,6 @@
 <?php
 
+// Reading Time Post
 if (!function_exists('upqode_reading_time')) {
 	function upqode_reading_time($post_id)
 	{
