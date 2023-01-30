@@ -2,8 +2,6 @@
   position: relative;
   z-index: 101;
 
-
-
   &--overlay {
     @include md-min {
       display: none !important;
@@ -95,7 +93,7 @@
             }
 
             &:hover {
-              & > .sub-menu {
+              &>.sub-menu {
                 opacity: 1;
                 visibility: visible;
               }
@@ -110,7 +108,7 @@
             }
           }
 
-          & > li {
+          &>li {
             display: inline-block;
             position: relative;
             font-weight: 600;
@@ -126,7 +124,7 @@
               line-height: 25px;
             }
 
-            & > a {
+            &>a {
               padding: 10px;
               will-change: color;
               transition: color 0.3s ease-in-out;
@@ -136,7 +134,7 @@
               }
             }
 
-            & > ul.sub-menu {
+            &>ul.sub-menu {
               position: absolute;
               top: calc(100% - 2px);
               left: 50%;
@@ -152,7 +150,7 @@
               box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
               z-index: 102;
 
-              & > li {
+              &>li {
                 margin-bottom: 5px;
 
                 &:last-of-type {
@@ -172,7 +170,7 @@
 
                 &.menu-item-has-children {
                   &:hover {
-                    & > .sub-menu {
+                    &>.sub-menu {
                       visibility: visible;
                       opacity: 1;
                     }
@@ -208,7 +206,7 @@
 
                   .menu-item-has-children {
                     &:hover {
-                      & > .sub-menu {
+                      &>.sub-menu {
                         visibility: visible;
                         opacity: 1;
                       }
@@ -316,7 +314,7 @@
               }
             }
 
-            & > li {
+            &>li {
               display: block;
               position: relative;
               font-size: 22px;
@@ -337,11 +335,11 @@
                 }
               }
 
-              & > ul {
+              &>ul {
                 flex-direction: column;
                 justify-content: space-between;
 
-                & > li {
+                &>li {
                   position: relative;
                   padding: 5px 0;
 
@@ -354,8 +352,8 @@
                     line-height: 25px;
                   }
 
-                  & > ul {
-                    & > li {
+                  &>ul {
+                    &>li {
                       position: relative;
                       padding: 5px 0;
 

@@ -4,8 +4,10 @@
 /* FOOTER */
 /*--------------------------------------------------------*/
 
-@import './mixin';
+
 @import './vars';
+
+@import './variables/normalize';
 @import './general';
 @import './header';
 @import './footer';
