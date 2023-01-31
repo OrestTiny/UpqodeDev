@@ -6,8 +6,8 @@
 
 
 @import './vars';
-
 @import './variables/normalize';
 @import './general';
-@import './header';
+@import './header/header';
+@import './header/header-burger';
 @import './footer';

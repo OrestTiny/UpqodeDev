@@ -61,7 +61,7 @@ function upqode_enqueue_scripts()
 		wp_enqueue_style('upqode-error-page', UPQODE_T_URI . '/assets/css/error-page.min.css');
 	}
 
-	if (is_archive() || is_category() || is_tag() || is_search()) {
+	if (is_archive() || is_author() || is_category() || is_tag() || !is_search()) {
 		wp_enqueue_style('upqode-blog-list', UPQODE_T_URI . '/assets/css/blog/blog-list.min.css');
 	}
 

@@ -3,15 +3,15 @@
 .upqode-blog--sidebar {
   position: sticky;
   top: 30px;
-  --page-bg: var(--c-light-grey);
+  --page-bg: $light;
   --post-br: 7px;
-  --post-cat-bg: var(--c-green);
+  --post-cat-bg: $grey;
   --post-bg: $light;
 
   .widget {
     border-radius: var(--post-br);
     background: var(--post-bg);
-    box-shadow: rgba(var(--ca-dark), 0.05) 0 0 15px 0;
+    box-shadow: rgba($dark, 0.05) 0 0 15px 0;
     padding: 30px;
     margin-bottom: 23px;
 
@@ -40,7 +40,7 @@
 
     input[type='search'],
     input[type='text'] {
-      border: 1px solid rgba(var(--ca-dark), 0.3);
+      border: 1px solid rgba($dark, 0.3);
       line-height: 35px;
       padding: 5px 20px;
       width: calc(100% - 65px);
@@ -50,22 +50,22 @@
 
     button[type='submit'],
     input[type='submit'] {
-      border: 1px solid var(--c-green);
+      border: 1px solid $grey;
       position: relative;
       z-index: 10;
       border-top-right-radius: var(--post-br);
       border-bottom-right-radius: var(--post-br);
       font-weight: 600;
       padding: 5px 15px;
-      background-color: var(--c-green);
+      background-color: $grey;
       color: $light;
       cursor: pointer;
       transition: all 0.3s ease;
 
       &:hover {
         background-color: $light;
-        border-color: var(--c-green);
-        color: var(--c-green);
+        border-color: $grey;
+        color: $grey;
       }
     }
 
@@ -133,7 +133,7 @@
         height: 30px;
         width: 30px;
         color: $light;
-        background: var(--c-green);
+        background: $grey;
         border-radius: 50%;
         position: absolute;
         top: 0;
@@ -163,7 +163,7 @@
       }
 
       a:hover>* {
-        color: var(--c-green);
+        color: $grey;
       }
 
       span:first-of-type {
@@ -268,7 +268,7 @@
       }
 
       a:hover>* {
-        color: var(--c-green);
+        color: $grey;
       }
 
       b {
@@ -378,7 +378,7 @@
     color: var(--c-grey);
 
     &:hover {
-      color: var(--c-green);
+      color: $grey;
     }
   }
 
@@ -388,7 +388,7 @@
     outline: none !important;
     background: $light;
     color: var(--c-grey);
-    border: 1px solid rgba(var(--ca-dark), 0.15) !important;
+    border: 1px solid rgba($dark, 0.15) !important;
     max-height: calc(1.2em + 17px);
     height: calc(1.2em + 17px);
     padding: 6px 10px 5px;
@@ -408,11 +408,11 @@
   table {
     width: 100%;
     margin-bottom: 10px;
-    border: 1px solid rgba(var(--ca-dark), 0.15);
+    border: 1px solid rgba($dark, 0.15);
 
     td,
     th {
-      border: 1px solid rgba(var(--ca-dark), 0.15);
+      border: 1px solid rgba($dark, 0.15);
       text-align: center;
       padding: 4px 2px 2px;
     }
@@ -425,7 +425,7 @@
         color: $dark;
 
         &:hover {
-          color: var(--c-green);
+          color: $grey;
         }
       }
     }
@@ -452,7 +452,7 @@
       color: $dark;
 
       &:hover {
-        color: var(--c-green);
+        color: $grey;
       }
     }
 
@@ -464,7 +464,7 @@
         color: $dark;
 
         &:hover {
-          color: var(--c-green);
+          color: $grey;
         }
       }
     }
@@ -475,7 +475,7 @@
       color: $dark;
 
       &:hover {
-        color: var(--c-green);
+        color: $grey;
       }
 
       img {
@@ -495,7 +495,7 @@
         color: $dark;
 
         &:hover {
-          color: var(--c-green);
+          color: $grey;
         }
       }
 

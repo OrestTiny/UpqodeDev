@@ -9,14 +9,14 @@
     padding: 100px 20px;
     position: relative;
     text-align: center;
-    --page-bg: var(--c-light-grey);
+    --page-bg: $light;
     --post-br: 7px;
-    --post-cat-bg: var(--c-green);
+    --post-cat-bg: $grey;
     --post-bg: $light;
   }
 
   &--small-title {
-    color: var(--c-green);
+    color: $grey;
     font-weight: 600;
     line-height: 1;
     font-size: 160px;
@@ -35,7 +35,7 @@
     line-height: 1;
     font-size: 250px;
     margin: 0;
-    color: var(--c-light-grey);
+    color: $light;
     position: absolute;
     top: 50%;
     font-weight: 600;
@@ -75,7 +75,7 @@
     padding: 10px 25px;
     line-height: 1.5;
     border: none;
-    background-color: var(--c-green);
+    background-color: $grey;
     color: $light;
     cursor: pointer;
     font-weight: 600;

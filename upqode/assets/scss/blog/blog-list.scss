@@ -37,7 +37,7 @@
       }
 
       input[type='text'] {
-        border: 1px solid rgba(var(--ca-dark), 0.15);
+        border: 1px solid rgba($dark, 0.15);
         padding: 4px 20px;
         min-width: 250px;
         margin-bottom: 20px;
@@ -57,7 +57,7 @@
         z-index: 10;
         font-weight: 600;
         padding: 0 20px;
-        background-color: var(--c-green);
+        background-color: $grey;
         color: $light;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -74,7 +74,7 @@
   }
 
   &--banner {
-    background-color: var(--c-light-grey);
+    background-color: $light;
     padding: 130px 15px;
     text-align: center;
     min-height: 150px;
@@ -109,9 +109,9 @@
   }
 
   &--wrapper {
-    --page-bg: var(--c-light-grey);
+    --page-bg: $light;
     --post-br: 7px;
-    --post-cat-bg: var(--c-green);
+    --post-cat-bg: $grey;
     --post-bg: $light;
 
     background: var(--page-bg);
@@ -182,7 +182,7 @@
       &-wrap {
         border-radius: var(--post-br);
         background: var(--post-bg);
-        box-shadow: rgba(var(--ca-dark), 0.05) 0 0 15px 0;
+        box-shadow: rgba($dark, 0.05) 0 0 15px 0;
       }
 
       &.sticky {
@@ -193,7 +193,7 @@
             display: inline-block;
             margin-right: 10px;
             transform: rotate(30deg);
-            color: var(--c-green);
+            color: $grey;
           }
         }
       }
@@ -261,7 +261,7 @@
         line-height: inherit;
 
         &:hover {
-          color: var(--c-green);
+          color: $grey;
         }
       }
 
@@ -296,7 +296,7 @@
             margin-bottom: 0;
 
             &:hover {
-              color: var(--c-green);
+              color: $grey;
 
               &::before {
                 color: var(--c-grey);
@@ -375,11 +375,11 @@
         font-size: 1rem;
 
         &:hover {
-          color: var(--c-green);
+          color: $grey;
         }
 
         &.current {
-          background: var(--c-green);
+          background: $grey;
           color: $light;
           padding: 10px 15px;
           font-weight: 500;

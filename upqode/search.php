@@ -24,7 +24,7 @@ if (is_search()) {
 
 $posts = new WP_Query($args);
 
-$posts->have_posts() ? get_template_part('template-parts/theme', 'blog') : get_template_part('template-parts/theme', 'none');
+$posts->have_posts() ? get_template_part('template-parts/theme', 'search') : get_template_part('template-parts/theme', 'none');
 
 
 

@@ -47,6 +47,10 @@ h6 {
   &:first-child {
     margin-top: 0;
   }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 
@@ -94,7 +98,7 @@ a {
 
   &:hover,
   &:focus {
-    color: var(--c-green);
+    color: $grey;
   }
 }
 
@@ -141,56 +145,19 @@ p {
   height: 100vh;
 }
 
-// CHECK
-.wp-caption {
-  margin-bottom: 25px;
-  max-width: 100%;
-}
-
-.wp-caption .wp-caption-text {
-  font-size: 13px;
-  line-height: 1.5;
-  color: $grey;
-  margin-top: 10px;
-}
-
-.gallery-caption {
-  word-break: break-word;
-  font-size: 13px;
-  line-height: 1.5;
-  color: $grey;
-  margin-top: 10px;
-}
-
 ::-moz-selection {
-  background: #000;
+  background: $grey;
   color: #fff;
 }
 
 ::selection {
-  background: #000;
+  background: $grey;
   color: #fff;
 }
 
 ::-moz-selection {
-  background: #000;
+  background: $grey;
   color: #fff;
-}
-
-::-webkit-input-placeholder {
-  color: $grey;
-}
-
-::-moz-placeholder {
-  color: $grey;
-}
-
-:-ms-input-placeholder {
-  color: $grey;
-}
-
-:-moz-placeholder {
-  color: $grey;
 }
 
 :focus {
@@ -214,32 +181,8 @@ p {
   margin-bottom: 15px;
 }
 
-p.has-large-font-size {
-  font-size: 36px;
-}
-
-p.has-medium-font-size {
-  font-size: 20px;
-}
-
-p.has-small-font-size {
-  font-size: 13px;
-}
-
-p.has-huge-font-size {
-  font-size: 48px;
-}
-
-/* typography
----------------------------*/
-
 .overflow-full {
   overflow: hidden;
-}
-
-.monospace {
-  font-family: 'Source Code Pro', sans-serif;
-  color: #494949;
 }
 
 audio,
@@ -248,13 +191,13 @@ iframe {
   max-width: 100%;
 
   @include md-max {
-    min-width: 200px !important;
+    min-width: 300px;
   }
 }
 
 pre {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  background: var(--c-light-grey);
+  background: $light;
   color: $dark;
   font-size: 14px;
   line-height: 1.6;
@@ -290,69 +233,8 @@ td {
 table,
 th,
 td {
-  border: 1px solid rgba(var(--ca-dark), 0.15);
+  border: 1px solid rgba($dark, 0.15);
   border-collapse: collapse;
-}
-
-th {
-  font-weight: 600;
-  color: $dark;
-}
-
-dt {
-  font-weight: 600;
-  color: $dark;
-}
-
-dd {
-  margin: 0 0 15px;
-}
-
-address {
-  font-style: italic;
-  margin-bottom: 15px;
-}
-
-abbr,
-acronym {
-  border-bottom: 1px dotted var(--c-light-grey);
-  cursor: help;
-}
-
-code {
-  background-color: var(--c-light-grey);
-  color: $dark;
-  font-size: 14px;
-  padding: 3px 4px 4px;
-  border-radius: 5px;
-}
-
-mark,
-ins {
-  background: var(--c-green);
-  color: $light;
-  padding: 0 4px;
-  text-decoration: none;
-}
-
-kbd {
-  font-weight: 100;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  font-size: 14px;
-  padding: 3px 4px 4px;
-  border-radius: 5px;
-  background-color: var(--c-light-grey);
-  color: $dark;
-}
-
-tt {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  font-size: 14px;
-  padding: 3px 4px 4px;
-  border-radius: 5px;
-  background-color: var(--c-light-grey);
-  color: $dark;
 }
 
 select {
@@ -360,12 +242,12 @@ select {
   min-width: 100%;
   background: $light;
   color: $grey;
-  border: 1px solid rgba(var(--ca-dark), 0.15);
+  border: 1px solid rgba($dark, 0.15);
   outline: none !important;
   max-height: calc(1.2em + 17px);
   height: calc(1.2em + 17px);
   padding: 6px 10px 5px;
-  -webkit-appearance: none;
+  appearance: none;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23dddddd'><polygon points='0,0 100,0 50,50'/></svg>");
   background-size: 12px;
   background-position: calc(100% - 10px) 16px;

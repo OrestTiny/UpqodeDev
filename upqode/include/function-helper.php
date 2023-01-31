@@ -181,3 +181,18 @@ if (!function_exists('upqode_fix_svg_size_attributes')) {
 
 	add_filter('image_downsize', 'upqode_fix_svg_size_attributes', 10, 2);
 }
+
+
+/**
+ * Check need minimal requirements (PHP and WordPress version)
+ */
+if (version_compare($GLOBALS['wp_version'], '4.3', '<') || version_compare(PHP_VERSION, '5.3', '<')) {
+	if (!function_exists('cda_requirements_notice')) {
+		function cda_requirements_notice()
+		{
+			$message = sprintf(esc_html__('Cda theme needs minimal WordPress version 4.3 and PHP 5.6<br>You are running version WordPress - %s, PHP - %s.<br>Please upgrade need module and try again.', 'cda'), $GLOBALS['wp_version'], PHP_VERSION);
+			printf('<div class="notice-warning notice"><p><strong>%s</strong></p></div>', $message);
+		}
+	}
+	add_action('admin_notices', 'cda_requirements_notice');
+}
