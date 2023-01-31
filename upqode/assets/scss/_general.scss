@@ -17,6 +17,7 @@ body {
   font-size: $font-size;
   font-family: $font-family;
   color: $grey;
+  line-height: 1.625rem;
 }
 
 .container {
@@ -94,7 +95,7 @@ a {
   color: $dark;
   outline: 0;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color .450ms ease;
 
   &:hover,
   &:focus {
