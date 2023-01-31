@@ -7,16 +7,17 @@ $footer_text = esc_html__(' &copy;', 'upqode') . date('Y') . ' ' . get_bloginfo(
 <footer class="upqode-footer">
     <div class="container">
         <div class="upqode-footer__wrap">
-            <div class="upqode-footer__menu">
-                <?php if (has_nav_menu('footer-menu')) {
-                    $args = array(
-                        'container' => false,
-                        'menu_class' => 'footer-menu',
-                    );
-                    $args['theme_location'] = 'footer-menu';
-                    wp_nav_menu($args);
-                } ?>
-            </div>
+
+            <?php if (has_nav_menu('footer-menu')) {
+                $args = array(
+                    'container_class' => 'upqode-footer__menu',
+                    'container'       => 'nav',
+                    'menu_class' => 'footer-menu',
+                );
+                $args['theme_location'] = 'footer-menu';
+                wp_nav_menu($args);
+            } ?>
+
             <div class="upqode-footer__development">
                 <a href="https://upqode.com/web-design/" rel="noopener" target="_blank">Web Design</a> and
                 <a href="https://upqode.com/wordpress-development/" rel="noopener" target="_blank">Development</a> by

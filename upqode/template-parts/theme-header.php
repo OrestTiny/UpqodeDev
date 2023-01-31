@@ -17,7 +17,6 @@ $alarm = '<h4">' . esc_html__('Please register Top Navigation from', 'upqode') .
             'container_class' => 'upqode-header__menu',
             'container'       => 'nav',
             'menu_class' => 'header-menu',
-            'tag' => 'nav',
           );
           $args['theme_location'] = 'primary-menu';
           wp_nav_menu($args);

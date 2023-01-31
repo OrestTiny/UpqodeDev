@@ -14,18 +14,32 @@ if (is_search()) {
 
 $posts = new WP_Query($args);
 
-
 $count = isset($posts->found_posts) && !empty($posts->found_posts) ? $posts->found_posts : '0';
 $count_text = $count == '1' ? esc_html__('result found', 'upqode') : esc_html__('results found', 'upqode');
 
-$upqode_blog_title_text  = is_search() ? esc_html__('Showing results for ', 'upqode') . '"' . esc_html($term) . '"' : esc_html__('Blog', 'upqode'); ?>
+$upqode_blog_title_text        =  esc_html__('Showing results for ', 'upqode') . '"' . esc_html($term) . '"';
 
-<section class="upqode-blog">
+?>
+
+<div class="upqode-blog">
 
   <div class="upqode-blog__heading">
-    <h1><?php echo esc_html($upqode_blog_title_text); ?></h1>
+    <div class="container">
+      <h1><?php echo esc_html($upqode_blog_title_text); ?></h1>
+      <p><?php echo $count_text . ' ' . $count  ?></p>
+    </div>
   </div>
 
-  <?php get_template_part('template-parts/theme', 'blog'); ?>
+  <div class="upqode-blog">
+    <div class="container">
+      <div class="upqode-blog__wrap">
+        <?php while ($posts->have_posts()) : $posts->the_post();
 
-</section>
+          get_template_part('template-parts/content/list', 'posts');
+
+        endwhile;
+        wp_reset_postdata(); ?>
+      </div>
+    </div>
+  </div>
+</div>

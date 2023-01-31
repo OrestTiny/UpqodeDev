@@ -2,8 +2,9 @@
 
 // Reading Time Post
 if (!function_exists('upqode_reading_time')) {
-	function upqode_reading_time($post_id)
+	function upqode_reading_time()
 	{
+		$post_id   = get_the_ID();
 		$content = get_post_field('post_content', $post_id);
 
 		$word_count       = str_word_count(strip_tags($content));
@@ -60,5 +61,47 @@ if (!function_exists('upqode_sharing_icon_links')) {
 		$html .= '</ul>';
 
 		echo wp_kses_post($html);
+	}
+}
+
+
+/**
+ *  Post Image
+ */
+if (!function_exists('upqode_get_image_post')) {
+	function upqode_get_image_post($class = '')
+	{
+		$post_id   = get_the_ID();
+		$image_id  = get_post_thumbnail_id($post_id);
+		$class_line =  $class ? 'class="' . $class . '"' : '';
+
+		if ($image_id) {
+			$image     = wp_get_attachment_image_url($image_id, 'large');
+			$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+
+			$image_html = '<img ' . $class_line . ' src="' . esc_url($image) . '" alt="' . esc_attr($image_alt) . '">';
+
+			return $image_html;
+		}
+	}
+}
+
+
+/**
+ * Blog Pagination 
+ */
+if (!function_exists('upqode_blog_pagination')) {
+	function upqode_blog_pagination()
+	{
+?>
+		<div class="upqode-blog--pagination">
+			<?php
+			the_posts_pagination(array(
+				'screen_reader_text' => ' ',
+				'prev_text' => __('Previous', 'upqode'),
+				'next_text' => __('Next', 'upqode'),
+			)); ?>
+		</div>
+<?php
 	}
 }
