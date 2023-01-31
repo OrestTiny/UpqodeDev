@@ -1,4 +1,4 @@
-@import '../mixin';
+@import '../vars';
 
 body.page-template-default:not(.woocommerce-page) {
   --page-bg: var(--c-light-grey);
@@ -122,7 +122,7 @@ body.page-template-default:not(.woocommerce-page) {
       justify-content: space-between;
       align-items: center;
 
-      @include xs-size-max {
+      @include xs-max {
         flex-direction: column;
         text-align: center;
       }
@@ -189,15 +189,15 @@ body.page-template-default:not(.woocommerce-page) {
         clear: both;
       }
 
-      @include lg-size-max {
+      @include lg-max {
         margin-bottom: 70px;
       }
 
-      @include sm-size-max {
+      @include sm-max {
         margin-bottom: 60px;
       }
 
-      @include xs-size-max {
+      @include xs-max {
         margin-bottom: 25px;
       }
 
@@ -275,7 +275,7 @@ body.page-template-default:not(.woocommerce-page) {
           line-height: 1.3;
           margin-bottom: 0.4rem;
 
-          @include xs-size-max {
+          @include xs-max {
             font-size: 1.5rem;
           }
         }
@@ -368,12 +368,12 @@ body.page-template-default:not(.woocommerce-page) {
       justify-content: space-between;
       margin-bottom: 50px;
 
-      @include xs-size-max {
+      @include xs-max {
         flex-direction: column;
       }
 
       &>div:not(:last-of-type) {
-        @include xs-size-max {
+        @include xs-max {
           margin-bottom: 15px;
         }
       }
@@ -386,7 +386,7 @@ body.page-template-default:not(.woocommerce-page) {
         border-radius: var(--post-br);
         box-shadow: rgba(var(--ca-dark), 0.05) 0 0 15px 0;
 
-        @include xs-size-max {
+        @include xs-max {
           width: 100%;
         }
 
@@ -541,7 +541,7 @@ body.page-template-default:not(.woocommerce-page) {
         #{$single}__comments-item {
           margin-left: 50px;
 
-          @include xs-size-max {
+          @include xs-max {
             margin-left: 25px;
           }
 
@@ -577,7 +577,7 @@ body.page-template-default:not(.woocommerce-page) {
             height: 80px;
             width: 80px;
 
-            @include xs-size-max {
+            @include xs-max {
               height: 50px;
               width: 50px;
             }
@@ -593,7 +593,7 @@ body.page-template-default:not(.woocommerce-page) {
           width: 100%;
           max-width: calc(100% - 105px);
 
-          @include xs-size-max {
+          @include xs-max {
             max-width: calc(100% - 75px);
           }
 
@@ -604,7 +604,7 @@ body.page-template-default:not(.woocommerce-page) {
           .comment-text {
             margin-bottom: 0;
 
-            @include xs-size-max {
+            @include xs-max {
               margin-bottom: 0;
             }
 
@@ -648,7 +648,7 @@ body.page-template-default:not(.woocommerce-page) {
             font-size: 20px;
             font-weight: 700;
 
-            @include xs-size-max {
+            @include xs-max {
               margin-bottom: 15px;
             }
 
@@ -703,7 +703,7 @@ body.page-template-default:not(.woocommerce-page) {
         border: 1px solid rgba(var(--ca-grey), 0.15);
         border-radius: var(--post-br);
 
-        @include xs-size-max {
+        @include xs-max {
           margin-bottom: 15px;
         }
       }
@@ -712,7 +712,7 @@ body.page-template-default:not(.woocommerce-page) {
       input[type='email'] {
         width: calc(50% - 15px);
 
-        @include xs-size-max {
+        @include xs-max {
           width: 100%;
         }
       }
@@ -721,7 +721,7 @@ body.page-template-default:not(.woocommerce-page) {
         float: left;
         margin-right: 30px;
 
-        @include xs-size-max {
+        @include xs-max {
           float: none;
           margin-right: 0;
         }
@@ -749,7 +749,7 @@ body.page-template-default:not(.woocommerce-page) {
         align-items: center;
         margin-bottom: 30px;
 
-        @include xs-size-max {
+        @include xs-max {
           margin-bottom: 15px;
         }
 

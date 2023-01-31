@@ -1,4 +1,4 @@
-@import '../mixin';
+@import '../vars';
 
 .upqode-blog {
   $blog: &;
@@ -8,15 +8,15 @@
     text-align: center;
     min-height: calc(100vh - 184px);
 
-    @include lg-size-max {
+    @include lg-max {
       padding: 90px 0;
     }
 
-    @include sm-size-max {
+    @include sm-max {
       padding: 80px 0;
     }
 
-    @include xs-size-max {
+    @include xs-max {
       padding: 50px 0;
     }
 
@@ -30,7 +30,7 @@
         justify-content: center;
         align-items: flex-start;
 
-        @include xs-size-max {
+        @include xs-max {
           flex-direction: column;
           align-items: center;
         }
@@ -45,7 +45,7 @@
         height: 44px;
         border-radius: var(--post-br);
 
-        @include xs-size-max {
+        @include xs-max {
           margin-right: 0;
           text-align: center;
         }
@@ -81,11 +81,11 @@
     background-size: cover;
     background-position: center;
 
-    @include md-size-max {
+    @include md-max {
       padding: 100px 15px;
     }
 
-    @include xs-size-max {
+    @include xs-max {
       padding: 80px 15px;
     }
 
@@ -117,15 +117,15 @@
     background: var(--page-bg);
     padding: 100px 0 70px;
 
-    @include lg-size-max {
+    @include lg-max {
       padding: 90px 0 60px;
     }
 
-    @include sm-size-max {
+    @include sm-max {
       padding: 80px 0 50px;
     }
 
-    @include xs-size-max {
+    @include xs-max {
       padding: 30px 0;
     }
 
@@ -134,15 +134,15 @@
         padding-bottom: 100px;
         text-align: center;
 
-        @include lg-size-max {
+        @include lg-max {
           padding-bottom: 90px;
         }
 
-        @include sm-size-max {
+        @include sm-max {
           padding-bottom: 80px;
         }
 
-        @include xs-size-max {
+        @include xs-max {
           padding-bottom: 30px;
         }
       }
@@ -351,16 +351,16 @@
       margin-top: 63px;
       margin-bottom: 23px;
 
-      @include lg-size-max {
+      @include lg-max {
         margin-top: 53px;
       }
 
-      @include sm-size-max {
+      @include sm-max {
         margin-top: 33px;
         margin-bottom: 53px;
       }
 
-      @include xs-size-max {
+      @include xs-max {
         margin-top: 15px;
         margin-bottom: 23px;
       }

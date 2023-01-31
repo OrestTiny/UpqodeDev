@@ -1,4 +1,4 @@
-@import '../mixin';
+@import '../vars';
 
 .upqode-blog--sidebar {
   position: sticky;
@@ -15,7 +15,7 @@
     padding: 30px;
     margin-bottom: 23px;
 
-    @include xs-size-max {
+    @include xs-max {
       margin-bottom: 15px;
     }
 
@@ -124,7 +124,7 @@
       &.image {
         min-width: 33%;
 
-        @include xs-size-max {
+        @include xs-max {
           min-width: 30px;
         }
       }
@@ -147,7 +147,7 @@
       img {
         border-radius: 50%;
 
-        @include xs-size-max {
+        @include xs-max {
           display: none;
         }
       }
@@ -186,7 +186,7 @@
         .upqode-widget-reading--image {
           margin-right: 0;
 
-          @include xs-size-max {
+          @include xs-max {
             display: block;
           }
 
@@ -199,7 +199,7 @@
       &:not(:last-of-type) {
         margin-bottom: 30px;
 
-        @include xs-size-max {
+        @include xs-max {
           margin-bottom: 15px;
         }
       }
@@ -253,7 +253,7 @@
       margin-right: 20px;
       min-width: 33%;
 
-      @include xs-size-max {
+      @include xs-max {
         display: none;
       }
 

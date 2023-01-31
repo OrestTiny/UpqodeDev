@@ -5,7 +5,7 @@
   //     display: none !important;
   //   }
 
-  //   @include sm-size-max {
+  //   @include sm-max{
   //     position: fixed;
   //     left: 0;
   //     top: 0;
@@ -36,7 +36,7 @@
       text-decoration: none;
       z-index: 101;
 
-      @include xs-size-max {
+      @include xs-max {
         font-size: 26px;
       }
     }
@@ -215,13 +215,13 @@
           }
         }
 
-        @include sm-size-max {
+        @include sm-max {
           display: none;
         }
       }
 
       .header--no-menu {
-        @include sm-size-max {
+        @include sm-max {
           visibility: hidden;
           transform: translateX(200%);
           transition: transform 0.4s linear;
@@ -229,7 +229,7 @@
         }
       }
 
-      @include sm-size-max {
+      @include sm-max {
         position: absolute;
         display: flex;
         flex-direction: column;
@@ -245,7 +245,7 @@
         background: transparent;
         z-index: 102;
 
-        @include xs-size-max {
+        @include xs-max {
           height: calc(100vh - 120%);
         }
 
@@ -283,7 +283,7 @@
                 height: 40px;
                 z-index: 103;
 
-                @include xs-size-max {
+                @include xs-max {
                   right: -2px;
                   width: 25px;
                   height: 25px;
@@ -370,7 +370,7 @@
         display: none !important;
       }
 
-      @include sm-size-max {
+      @include sm-max {
         display: inline-flex;
         position: relative;
         width: 35px;
@@ -428,7 +428,7 @@
         }
       }
 
-      @include xs-size-max {
+      @include xs-max {
         width: 30px;
         height: 30px;
         padding: 0;
@@ -467,7 +467,7 @@
   }
 
   &.menu-open {
-    @include sm-size-max {
+    @include sm-max {
       .upqode-header--overlay {
         opacity: 1;
         transform: translate(0);

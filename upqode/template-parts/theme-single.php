@@ -9,7 +9,7 @@ $author_id = get_the_author_meta('ID');
 
 ?>
 
-<div class="upqode-single">
+<section class="upqode-single">
     <?php if (has_post_thumbnail()) { ?>
         <div class="container">
             <div class="upqode-single__banner">
@@ -66,4 +66,4 @@ $author_id = get_the_author_meta('ID');
             ); ?>
         </div>
     </div>
-</div>
+    </div>

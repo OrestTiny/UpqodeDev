@@ -3,66 +3,65 @@
 
 global $wp_query;
 
-$content_size_class = is_active_sidebar( 'upqode-sidebar' ) ? 'col-12 col-lg-8' : 'col-12';
-$post_size_class    = is_active_sidebar( 'upqode-sidebar' ) ? 6 : 4;
+
 $upqode_blog_title_text        =  is_archive() || is_category() ? '' : get_the_title(); ?>
 
-<div class="upqode-blog--wrapper grid-sidebar">
+<section class="upqode-blog--wrapper grid-sidebar">
 
-	<?php if(!empty($upqode_blog_title_text) ){ ?>
+    <?php if (!empty($upqode_blog_title_text)) { ?>
         <div class="container upqode-blog--top-wrap">
             <div class="row">
                 <div class="col-12">
-					<?php if(!empty($upqode_blog_title_text)){ ?>
+                    <?php if (!empty($upqode_blog_title_text)) { ?>
                         <h1 class="upqode-blog--top-title"><?php echo esc_html($upqode_blog_title_text); ?></h1>
-					<?php } ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
-	<?php } ?>
+    <?php } ?>
 
     <div class="container">
         <div class="row">
-            <div class="upqode-blog--posts <?php echo esc_attr( $content_size_class ); ?>">
+            <div class="upqode-blog--posts <?php echo esc_attr($content_size_class); ?>">
                 <div class="upqode-blog--isotope row">
-					<?php while ( have_posts() ) :
-						the_post();
+                    <?php while (have_posts()) :
+                        the_post();
 
-						$post_id   = get_the_ID();
-						$no_image  = ! has_post_thumbnail() ? ' no-image' : '';
-						$image_id  = get_post_thumbnail_id( $post_id );
-						$author_id = get_the_author_meta( 'ID' ); ?>
+                        $post_id   = get_the_ID();
+                        $no_image  = !has_post_thumbnail() ? ' no-image' : '';
+                        $image_id  = get_post_thumbnail_id($post_id);
+                        $author_id = get_the_author_meta('ID'); ?>
 
-                        <div <?php post_class( 'upqode-blog--post col-12 col-sm-6 col-md-' . $post_size_class ); ?>>
+                        <div <?php post_class('upqode-blog--post col-12 col-sm-6 col-md-' . $post_size_class); ?>>
                             <div class="upqode-blog--post-wrap">
-								<?php if ( ! empty( $image_id ) ) {
-									$image     = wp_get_attachment_image_url( $image_id, 'large' );
-									$image_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true ); ?>
+                                <?php if (!empty($image_id)) {
+                                    $image     = wp_get_attachment_image_url($image_id, 'large');
+                                    $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true); ?>
                                     <div class="upqode-blog--post__media">
-                                        <img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>">
+                                        <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($image_alt); ?>">
                                     </div>
-								<?php } ?>
+                                <?php } ?>
 
                                 <div class="upqode-blog--post__info-wrap">
 
                                     <div class="upqode-blog--post-header">
 
                                         <div class="upqode-blog--post__categories">
-                                            <b><?php the_category( ' '); ?></b>
+                                            <b><?php the_category(' '); ?></b>
                                         </div>
 
                                         <div class="upqode-blog--post__time">
-                                           <span>
-                                               <b>
-                                                   <i class="ion-clock"></i>
-                                                   <?php echo upqode_reading_time($post_id); ?>
-                                               </b>
-                                           </span>
+                                            <span>
+                                                <b>
+                                                    <i class="ion-clock"></i>
+                                                    <?php echo upqode_reading_time($post_id); ?>
+                                                </b>
+                                            </span>
                                         </div>
 
                                     </div>
 
-									<?php if(!empty(get_the_title())){ ?>
+                                    <?php if (!empty(get_the_title())) { ?>
                                         <div class="upqode-blog--post__title-wrap">
                                             <h3>
                                                 <a href="<?php the_permalink(); ?>" class="upqode-blog--post__title">
@@ -70,18 +69,18 @@ $upqode_blog_title_text        =  is_archive() || is_category() ? '' : get_the_t
                                                 </a>
                                             </h3>
                                         </div>
-									<?php } ?>
+                                    <?php } ?>
                                     <div class="upqode-blog--post__author">
 
                                         <div class="upqode-blog--post__author-info">
-                                            <?php echo get_avatar( $author_id, 30 ); ?>
+                                            <?php echo get_avatar($author_id, 30); ?>
                                             <div class="upqode-blog--post__author-name">
-                                                <b><?php echo esc_html( get_the_author() ); ?></b>
+                                                <b><?php echo esc_html(get_the_author()); ?></b>
                                             </div>
                                         </div>
 
                                         <a href="<?php the_permalink(); ?>">
-											<?php echo sprintf( esc_html__( '%s ago', 'upqode' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?>
+                                            <?php echo sprintf(esc_html__('%s ago', 'upqode'), human_time_diff(get_the_time('U'), current_time('timestamp'))); ?>
                                         </a>
                                     </div>
                                     <div class="upqode-blog--post__text"><?php the_excerpt(); ?></div>
@@ -98,24 +97,24 @@ $upqode_blog_title_text        =  is_archive() || is_category() ? '' : get_the_t
 
                         </div>
 
-					<?php endwhile;
-					wp_reset_postdata(); ?>
+                    <?php endwhile;
+                    wp_reset_postdata(); ?>
                 </div>
-				<?php if ( $wp_query->max_num_pages > 1 ) { ?>
+                <?php if ($wp_query->max_num_pages > 1) { ?>
                     <div class="upqode-blog--pagination">
-						<?php echo paginate_links(
-							array(
-								'prev_text' => __( 'Previous', 'upqode' ),
-								'next_text' => __( 'Next', 'upqode' ),
-								'total'     => $wp_query->max_num_pages
-							)
-						); ?>
+                        <?php echo paginate_links(
+                            array(
+                                'prev_text' => __('Previous', 'upqode'),
+                                'next_text' => __('Next', 'upqode'),
+                                'total'     => $wp_query->max_num_pages
+                            )
+                        ); ?>
                     </div>
-				<?php } ?>
+                <?php } ?>
             </div>
-			<?php if ( is_active_sidebar( 'upqode-sidebar' ) ) {
-				get_sidebar( 'upqode-sidebar' );
-			} ?>
+            <?php if (is_active_sidebar('upqode-sidebar')) {
+                get_sidebar('upqode-sidebar');
+            } ?>
         </div>
     </div>
-</div>
+</section>

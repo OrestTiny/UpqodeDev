@@ -81,7 +81,7 @@ $xxl: 1400px;
 
 
 
-// @mixin xs-size-max {
+// @mixin xs-max {
 //   @media screen and (max-width: 767px) {
 //     @content;
 //   }
@@ -93,7 +93,7 @@ $xxl: 1400px;
 //   }
 // }
 
-// @mixin sm-size-max {
+// @mixin sm-max{
 //   @media screen and (max-width: 1024px) {
 //     @content;
 //   }
@@ -105,7 +105,7 @@ $xxl: 1400px;
 //   }
 // }
 
-// @mixin md-size-max {
+// @mixin md-max {
 //   @media screen and (max-width: 1199px) {
 //     @content;
 //   }
@@ -117,7 +117,7 @@ $xxl: 1400px;
 //   }
 // }
 
-// @mixin lg-size-max {
+// @mixin lg-max {
 //   @media screen and (max-width: 1440px) {
 //     @content;
 //   }
