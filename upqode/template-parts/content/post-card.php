@@ -5,32 +5,32 @@ $post_id   = get_the_ID();
 
 ?>
 
-<div class="upqode-posts">
+<div class="upqode-post-card">
   <?php if (!empty(get_the_title())) { ?>
-    <div class="upqode-posts__title">
+    <div class="upqode-post-card__title">
       <h3>
         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
       </h3>
     </div>
   <?php } ?>
 
-  <div class="upqode-posts__text"><?php the_excerpt(); ?></div>
+  <div class="upqode-post-card__text"><?php the_excerpt(); ?></div>
 
-  <div class="upqode-posts__media">
+  <div class="upqode-post-card__media">
     <?php echo upqode_get_image_post(); ?>
   </div>
 
-  <div class="upqode-posts__categories">
+  <div class="upqode-post-card__categories">
     <?php the_category(' '); ?>
   </div>
 
-  <div class="upqode-posts__time">
+  <div class="upqode-post-card__time">
     <?php echo upqode_reading_time(); ?>
   </div>
 
-  <div class="upqode-posts__author">
+  <div class="upqode-post-card__author">
     <?php echo get_avatar($author_id, 30); ?>
-    <div class="upqode-posts__author-name">
+    <div class="upqode-post-card__author-name">
       <b><?php echo esc_html(get_the_author()); ?></b>
     </div>
   </div>

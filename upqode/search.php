@@ -22,7 +22,6 @@ if (is_search()) {
 
 $posts = new WP_Query($args);
 
-
 get_header();
 
 $posts->have_posts() ? get_template_part('template-parts/theme', 'search') : get_template_part('template-parts/theme', 'none');

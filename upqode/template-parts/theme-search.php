@@ -1,5 +1,9 @@
 <?php
-//BLOG LIST
+
+/**
+ *  Search Pages
+ */
+
 $paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
 $term  = get_query_var('s');
 
@@ -21,25 +25,27 @@ $upqode_blog_title_text        =  esc_html__('Showing results for ', 'upqode') .
 
 ?>
 
-<div class="upqode-blog">
-
-  <div class="upqode-blog__heading">
+<section class="upqode-search">
+  <div class="upqode-search__heading">
     <div class="container">
       <h1><?php echo esc_html($upqode_blog_title_text); ?></h1>
       <p><?php echo $count_text . ' ' . $count  ?></p>
     </div>
   </div>
 
-  <div class="upqode-blog">
+  <div class="upqode-search__main">
     <div class="container">
-      <div class="upqode-blog__wrap">
+      <div class="upqode-search__main-wrap">
         <?php while ($posts->have_posts()) : $posts->the_post();
 
-          get_template_part('template-parts/content/list', 'posts');
+          get_template_part('template-parts/content/post', 'card');
 
         endwhile;
         wp_reset_postdata(); ?>
       </div>
+      <?php if (paginate_links()) {
+        upqode_blog_pagination();
+      } ?>
     </div>
   </div>
-</div>
+</section>

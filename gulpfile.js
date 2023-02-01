@@ -20,14 +20,12 @@ const path = {
     "./upqode/assets/scss/*.scss",
     "./upqode/assets/scss/{header,footer}/*.scss",
   ],
-  // scss_watch: [
-  //   "./upqode/assets/scss/*.scss",
-  //   "./upqode/assets/scss/{header,footer}/*.scss",
-  // ],
   scss_inner: [
     "./upqode/assets/scss/**/*.scss",
     "!./upqode/assets/scss/*.scss",
     "!./upqode/assets/scss/{header,footer}/*.scss",
+    "!./upqode/assets/scss/**/_*.scss",
+    "./upqode/assets/scss/blog/*.scss",
   ],
   js: [
     "./upqode/assets/js/**/*.js",

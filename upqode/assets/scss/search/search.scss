@@ -1,0 +1,28 @@
+@import '../vars';
+@import '../blog/pagination';
+@import '../blog/post-card';
+
+.upqode-search {
+  padding: 100px 0;
+
+
+  $th: &;
+
+  &__heading {
+    text-align: center;
+    padding-bottom: 60px;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    &-wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px 30px;
+    }
+  }
+}

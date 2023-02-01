@@ -1,16 +1,12 @@
 @import '../vars';
 
-.upqode-blog--sidebar {
+.upqode-blog__sidebar {
   position: sticky;
   top: 30px;
-  --page-bg: $light;
-  --post-br: 7px;
-  --post-cat-bg: $grey;
-  --post-bg: $light;
 
   .widget {
-    border-radius: var(--post-br);
-    background: var(--post-bg);
+    border-radius: $post-br;
+    background: $light;
     box-shadow: rgba($dark, 0.05) 0 0 15px 0;
     padding: 30px;
     margin-bottom: 23px;
@@ -44,8 +40,8 @@
       line-height: 35px;
       padding: 5px 20px;
       width: calc(100% - 65px);
-      border-top-left-radius: var(--post-br);
-      border-bottom-left-radius: var(--post-br);
+      border-top-left-radius: $post-br;
+      border-bottom-left-radius: $post-br;
     }
 
     button[type='submit'],
@@ -53,8 +49,8 @@
       border: 1px solid $grey;
       position: relative;
       z-index: 10;
-      border-top-right-radius: var(--post-br);
-      border-bottom-right-radius: var(--post-br);
+      border-top-right-radius: $post-br;
+      border-bottom-right-radius: $post-br;
       font-weight: 600;
       padding: 5px 15px;
       background-color: $grey;
@@ -191,7 +187,7 @@
           }
 
           img {
-            border-radius: var(--post-br);
+            border-radius: $post-br;
           }
         }
       }
@@ -222,8 +218,8 @@
       &.top {
         a {
           padding: 4px 10px;
-          background: var(--post-cat-bg);
-          border-radius: calc(var(--post-br) * 2);
+          background: $dark;
+          border-radius: $post-br;
           color: $light;
           border: 3px solid $light;
           display: inline-block;
@@ -236,13 +232,13 @@
           margin-left: auto;
           padding: 4px 10px;
           background: $light;
-          border-radius: calc(var(--post-br) * 2);
-          color: var(--c-grey);
+          border-radius: $post-br;
+          color: $grey;
           border: 3px solid $light;
           display: inline-block;
 
           b {
-            color: var(--c-grey);
+            color: $grey;
             font-size: 0.9rem;
           }
         }
@@ -298,8 +294,8 @@
         display: inline-block;
         font-weight: 600;
         font-size: 0.9rem;
-        border-radius: calc(var(--post-br) * 2);
-        background: var(--post-cat-bg);
+        border-radius: $post-br;
+        background: $dark;
         color: $light;
         padding: 4px 10px;
 
@@ -325,7 +321,7 @@
   p,
   ol,
   ul {
-    color: var(--c-grey);
+    color: $grey;
     line-height: 1.5;
   }
 
@@ -375,7 +371,7 @@
 
   a {
     text-decoration: none;
-    color: var(--c-grey);
+    color: $grey;
 
     &:hover {
       color: $grey;
@@ -387,12 +383,12 @@
     min-width: 100%;
     outline: none !important;
     background: $light;
-    color: var(--c-grey);
+    color: $grey;
     border: 1px solid rgba($dark, 0.15) !important;
     max-height: calc(1.2em + 17px);
     height: calc(1.2em + 17px);
     padding: 6px 10px 5px;
-    border-radius: var(--post-br);
+    border-radius: $post-br;
     -webkit-appearance: none;
     background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23dddddd'><polygon points='0,0 100,0 50,50'/></svg>") no-repeat;
     background-size: 12px;
@@ -418,7 +414,7 @@
     }
 
     td {
-      color: var(--c-grey);
+      color: $grey;
 
       a {
         font-weight: 400;
@@ -502,7 +498,7 @@
       .rss-date {
         display: block;
         font-size: 13px;
-        color: var(--c-grey);
+        color: $grey;
         margin-bottom: 10px;
         margin-top: 11px;
       }
