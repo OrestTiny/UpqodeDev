@@ -196,3 +196,16 @@ if (version_compare($GLOBALS['wp_version'], '4.3', '<') || version_compare(PHP_V
 	}
 	add_action('admin_notices', 'upqode_requirements_notice');
 }
+
+
+/**
+ * Search page content
+ */
+function upqode_search_filter($query)
+{
+	if ($query->is_search) {
+		$query->set('post_type', array('post', 'page'));
+	}
+	return $query;
+}
+add_filter('pre_get_posts', 'upqode_search_filter');

@@ -33,6 +33,7 @@ $posts = new WP_Query($args);
                 wp_reset_postdata(); ?>
 
             </div>
+
             <?php if (paginate_links()) {
                 upqode_blog_pagination();
             } ?>

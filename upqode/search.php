@@ -14,7 +14,7 @@ $paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
 $term  = get_query_var('s');
 
 $args = array(
-    'post_type' => 'post',
+    'post_type' => array('post', 'page'),
     'paged'     => $paged,
 );
 

@@ -12,11 +12,19 @@ $author_id = get_the_author_meta('ID');
     <div class="container">
         <div class="upqode-single__wrap">
 
+            <div class="navigation">
+                <p><?php posts_nav_link('&#8734;', 'Previous Post', 'Next Post'); ?></p>
+            </div>
+
+            <div class="upqode-single__posted">
+                <?php upqode_posted_on(); ?>
+            </div>
+
             <?php the_title('<h1 class="upqode-single__title">', '</h1>'); ?>
 
             <?php if (has_post_thumbnail()) { ?>
                 <div class="upqode-single__banner">
-                    <?php echo upqode_get_image_post(); ?>
+                    <?php the_post_thumbnail(); ?>
                 </div>
             <?php } ?>
 
@@ -25,8 +33,7 @@ $author_id = get_the_author_meta('ID');
             </div>
 
             <div class="upqode-single__author">
-                <?php esc_html_e('by ', 'upqode'); ?>
-                <b><?php echo esc_html(get_the_author()); ?></b>
+                <?php upqode_posted_by_author() ?>
             </div>
 
             <div class="upqode-single__date">
@@ -50,6 +57,9 @@ $author_id = get_the_author_meta('ID');
                 ' ',
                 '</div>'
             ); ?>
+
+            <?php upqode_the_posts_navigation(); ?>
+
         </div>
     </div>
 </section>

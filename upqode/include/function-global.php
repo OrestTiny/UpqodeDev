@@ -87,6 +87,7 @@ if (!function_exists('upqode_get_image_post')) {
 }
 
 
+
 /**
  * Blog Pagination 
  */
@@ -102,6 +103,107 @@ if (!function_exists('upqode_blog_pagination')) {
 				'next_text' => __('Next', 'upqode'),
 			)); ?>
 		</div>
-<?php
+		<?php
+	}
+}
+
+/**
+ * Print the next and previous posts navigation.
+ */
+if (!function_exists('upqode_the_posts_navigation')) {
+	function upqode_the_posts_navigation()
+	{
+		$prev_post = get_previous_post();
+		$next_post = get_next_post();
+
+		if (!empty($prev_post)) {
+			$prev_thumbnail_id = get_post_thumbnail_id($prev_post->ID);
+			$prev_post_title         = !empty(get_the_title($prev_post)) ? get_the_title($prev_post) : esc_html__('No title', 'upqode');
+			$prev_link               = get_permalink($prev_post);
+		}
+
+		if (!empty($next_post)) {
+			$next_thumbnail_id       = get_post_thumbnail_id($next_post->ID);
+			$next_post_title         = !empty(get_the_title($next_post)) ? get_the_title($next_post) : esc_html__('No title', 'upqode');
+			$next_link               = get_permalink($next_post);
+		}
+
+		echo '<div>';
+		if (!empty($prev_post)) : ?>
+			<div class="upqode-single__pagination-prev">
+				<a href="<?php echo esc_url($prev_link); ?>">
+					<?php echo wp_kses($prev_post_title, 'post'); ?>
+				</a>
+
+				<a href="<?php echo esc_url($prev_link); ?>">
+					<span><?php esc_html_e('Prev', 'upqode'); ?></span>
+				</a>
+
+				<?php if (!empty($prev_thumbnail_id)) { ?>
+					<a href="<?php echo esc_url($prev_link); ?>">
+						<?php echo wp_get_attachment_image($prev_thumbnail_id, 'medium'); ?>
+					</a>
+				<?php } ?>
+			</div>
+		<?php endif;
+
+
+		if (!empty($next_post)) : ?>
+			<div class="upqode-single__pagination-next">
+				<a href="<?php echo esc_url($next_link); ?>">
+					<?php echo wp_kses($next_post_title, 'post'); ?>
+				</a>
+
+				<a href="<?php echo esc_url($next_link); ?>">
+					<span><?php esc_html_e('Next', 'upqode'); ?></span>
+				</a>
+
+				<?php if (!empty($next_thumbnail_id)) { ?>
+					<a href="<?php echo esc_url($next_link); ?>">
+						<?php echo wp_get_attachment_image($next_thumbnail_id, 'medium'); ?>
+					</a>
+				<?php } ?>
+			</div>
+<?php endif;
+
+		echo '</div>';
+	}
+}
+
+
+/**
+ * Prints HTML with meta information about theme author.
+ */
+if (!function_exists('upqode_posted_by_author')) {
+	function upqode_posted_by_author()
+	{
+		if (!get_the_author_meta('description') && post_type_supports(get_post_type(), 'author')) {
+			printf(
+				esc_html__('By %s', 'upqode'),
+				'<a href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '" rel="author">' . esc_html(get_the_author()) . '</a>'
+			);
+		}
+	}
+}
+
+
+/**
+ * Prints HTML with meta information for the current post-date/time.
+ */
+if (!function_exists('upqode_posted_on')) {
+	function upqode_posted_on()
+	{
+		$time_string = '<time datetime="%1$s">%2$s</time>';
+
+		$time_string = sprintf(
+			$time_string,
+			esc_attr(get_the_date(DATE_W3C)),
+			esc_html(get_the_date())
+		);
+
+		printf(
+			esc_html__('Published %s', 'upqode'),
+			$time_string
+		);
 	}
 }
