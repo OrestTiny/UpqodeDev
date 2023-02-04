@@ -46,7 +46,7 @@ if (!function_exists('upqode_setup')) :
 		add_theme_support('responsive-embeds');
 
 		// Enqueue editor styles.
-		// add_editor_style(array('assets/css/style.min.css'));
+		// add_editor_style(array('assets/css/gutenberg.min.css'));
 
 		/*
 	 * Enable support for Post Thumbnails on posts and pages.

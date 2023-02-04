@@ -43,40 +43,26 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  line-height: 1.2;
 
   &:first-child {
     margin-top: 0;
   }
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+  // &:last-child {
+  //   margin-bottom: 0;
+  // }
 }
 
-
 h1 {
-  font-size: 50px;
-
-  @include md-max {
-    font-size: 32px;
-  }
+  @include resize(50px, 63px, false, 15px, 40px, 55px, 1px, 10px);
 }
 
 h2 {
   font-size: 34px;
-
-  @include md-max {
-    font-size: 28px;
-  }
 }
 
 h3 {
   font-size: 26px;
-
-  @include md-max {
-    font-size: 24px;
-  }
 }
 
 h4 {
@@ -276,6 +262,10 @@ input {
   &:focus,
   &:active {
     color: $dark;
+  }
+
+  @include placeholder {
+    color: $grey;
   }
 
   &[disabled] {

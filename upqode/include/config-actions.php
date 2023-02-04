@@ -8,9 +8,9 @@
 
 
 add_action('widgets_init', 'upqode_widgets_init');
-add_action('wp_enqueue_scripts', 'upqode_enqueue_scripts'); // add_action('enqueue_block_editor_assets', 'upqode_add_gutenberg_assets');
+add_action('wp_enqueue_scripts', 'upqode_enqueue_scripts'); 
 add_action('after_setup_theme', 'upqode_register_nav_menu', 0);
-
+add_action('enqueue_block_editor_assets', 'upqode_add_gutenberg_assets');
 
 /**
  * Register nav menu.
@@ -100,6 +100,18 @@ function upqode_enqueue_scripts()
 
 
 /**
+ * Add backend styles for Gutenberg.
+ */
+
+if (!function_exists('upqode_add_gutenberg_assets')) {
+	function upqode_add_gutenberg_assets()
+	{
+		wp_enqueue_style('upqode-gutenberg', UPQODE_T_URI . '/assets/css/gutenberg.min.css');
+	}
+}
+
+
+/**
  *  JS inline source
  */
 
@@ -118,7 +130,6 @@ function upqode_enqueue_scripts()
 /**
  *  Comment Template
  */
-
 function upqode_comment_reply()
 {
 	if ((!is_admin()) && is_singular() && comments_open() && get_option('thread_comments'))

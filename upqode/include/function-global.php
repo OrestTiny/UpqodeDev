@@ -36,27 +36,27 @@ if (!function_exists('upqode_sharing_icon_links')) {
 
 		// facebook
 		$facebook_url = 'https://www.facebook.com/sharer/sharer.php?u=' . get_the_permalink();
-		$html .= '<li><a href="' . esc_url($facebook_url) . '" target="_blank"></a></li>';
+		$html .= '<li><a href="' . esc_url($facebook_url) . '" target="_blank">facebook</a></li>';
 
 		// twitter
 		$twitter_url = 'https://twitter.com/share?' . esc_url(get_permalink()) . '&amp;text=' . get_the_title();
-		$html .= '<li><a href="' . esc_url($twitter_url) . '" target="_blank"></a></li>';
+		$html .= '<li><a href="' . esc_url($twitter_url) . '" target="_blank">twitter</a></li>';
 
 		// linkedin
 		$linkedin_url = 'http://www.linkedin.com/shareArticle?url=' . esc_url(get_permalink()) . '&amp;title=' . get_the_title();
-		$html .= '<li><a href="' . esc_url($linkedin_url) . '" target="_blank"></a></li>';
+		$html .= '<li><a href="' . esc_url($linkedin_url) . '" target="_blank">linkedin</a></li>';
 
 		// pinterest
 		$pinterest_url = 'https://pinterest.com/pin/create/bookmarklet/?url=' . esc_url(get_permalink()) . '&amp;description=' . get_the_title() . '&amp;media=' . esc_url(wp_get_attachment_url(get_post_thumbnail_id($post->ID)));
-		$html .= '<li><a href="' . esc_url($pinterest_url) . '" target="_blank"></a></li>';
+		$html .= '<li><a href="' . esc_url($pinterest_url) . '" target="_blank">pinterest</a></li>';
 
 		// tumblr
 		$tumblr_url = 'http://www.tumblr.com/share/link?url=' . urlencode(esc_url(get_permalink())) . '&amp;name=' . urlencode(get_the_title()) . '&amp;description=' . urlencode(get_the_excerpt());
-		$html .= '<li><a href="' . esc_url($tumblr_url) . '" target="_blank"></a></li>';
+		$html .= '<li><a href="' . esc_url($tumblr_url) . '" target="_blank">tumblr</a></li>';
 
 		// reddit
 		$reddit_url = 'http://reddit.com/submit?url=' . esc_url(get_permalink()) . '&amp;title=' . get_the_title();
-		$html .= '<li><a href="' . esc_url($reddit_url) . '" target="_blank"></a></li>';
+		$html .= '<li><a href="' . esc_url($reddit_url) . '" target="_blank">reddit</a></li>';
 
 		$html .= '</ul>';
 
