@@ -8,7 +8,7 @@
 
 
 add_action('widgets_init', 'upqode_widgets_init');
-add_action('wp_enqueue_scripts', 'upqode_enqueue_scripts'); 
+add_action('wp_enqueue_scripts', 'upqode_enqueue_scripts');
 add_action('after_setup_theme', 'upqode_register_nav_menu', 0);
 add_action('enqueue_block_editor_assets', 'upqode_add_gutenberg_assets');
 
@@ -73,10 +73,6 @@ function upqode_enqueue_scripts()
 		wp_enqueue_style('upqode-blog-single', UPQODE_T_URI . '/assets/css/single/single.min.css');
 	}
 
-	if (is_active_sidebar('upqode-sidebar')) {
-		wp_enqueue_style('upqode-sidebar', UPQODE_T_URI . '/assets/css/sidebar/sidebar.min.css');
-	}
-
 	wp_enqueue_style('upqode-main-style', UPQODE_T_URI . '/assets/css/style.min.css');
 	wp_enqueue_style('upqode-style', UPQODE_T_URI . '/style.css');
 
@@ -97,6 +93,20 @@ function upqode_enqueue_scripts()
 	// wp_enqueue_script('upqode-script', UPQODE_T_URI . '/assets/js/script.min.js', array('jquery'), '', true);
 	wp_enqueue_script('upqode-script', UPQODE_T_URI . '/assets/js/script.min.js', array(), '', true);
 }
+
+
+/**
+ * Add sidebar stylesheet.
+ */
+
+function upqode_get_sidebar()
+{
+	if (is_active_sidebar('upqode-sidebar')) {
+		wp_enqueue_style('upqode-sidebar', UPQODE_T_URI . '/assets/css/sidebar/sidebar.min.css');
+	}
+}
+add_action('get_sidebar', 'upqode_get_sidebar');
+
 
 
 /**

@@ -82,9 +82,9 @@ if (!function_exists('upqode_comment')) {
 			default:
 				// generate comments
 				?>
-					<div <?php comment_class('upqode-blog--single__comments-item'); ?> id="li-comment-<?php comment_ID(); ?>">
-						<div id="comment-<?php comment_ID(); ?>" class="upqode-blog--single__comments-item-wrap">
-							<div class="upqode-blog--single__comments-content">
+					<div <?php comment_class('upqode-single__comments-item'); ?> id="li-comment-<?php comment_ID(); ?>">
+						<div id="comment-<?php comment_ID(); ?>" class="upqode-single__comments-item-wrap">
+							<div class="upqode-single__comments-content">
 								<span class="person-img">
 									<?php echo get_avatar($comment, '80', '', '', array('class' => 'img-person')); ?>
 								</span>
@@ -164,25 +164,6 @@ if (!function_exists('upqode_add_rel_preload')) {
 	}
 }
 
-
-
-if (!function_exists('upqode_fix_svg_size_attributes')) {
-	function upqode_fix_svg_size_attributes($out, $id)
-	{
-		$image_url = wp_get_attachment_url($id);
-		$file_ext = pathinfo($image_url, PATHINFO_EXTENSION);
-
-		if (is_admin() || 'svg' !== $file_ext) {
-			return false;
-		}
-
-		return array($image_url, null, null, false);
-	}
-
-	add_filter('image_downsize', 'upqode_fix_svg_size_attributes', 10, 2);
-}
-
-
 /**
  * Check need minimal requirements (PHP and WordPress version)
  */
@@ -201,11 +182,11 @@ if (version_compare($GLOBALS['wp_version'], '4.3', '<') || version_compare(PHP_V
 /**
  * Search page content
  */
-function upqode_search_filter($query)
-{
-	if ($query->is_search) {
-		$query->set('post_type', array('post', 'page'));
-	}
-	return $query;
-}
-add_filter('pre_get_posts', 'upqode_search_filter');
+// function upqode_search_filter($query)
+// {
+// 	if ($query->is_search && !is_admin()) {
+// 		$query->set('post_type', array('post', 'page'));
+// 	}
+// 	return $query;
+// }
+// add_filter('pre_get_posts', 'upqode_search_filter');

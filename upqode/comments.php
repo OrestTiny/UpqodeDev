@@ -19,10 +19,11 @@ if (post_password_required()) {
 <?php // Comment list
 $comment_list = get_comments_number(get_the_id());
 if ($comment_list > 0) : ?>
-	<h3 class="upqode-blog--single__comments-title"><?php printf(
-																										_nx('1 comment', '<span class="count">%1$s Comments</span>', get_comments_number(), 'comments', 'upqode'),
-																										number_format_i18n(get_comments_number())
-																									); ?></h3>
+	<h3 class="upqode-single__comments-title">
+		<?php printf(
+			_nx('1 comment', '<span class="count">%1$s Comments</span>', get_comments_number(), 'comments', 'upqode'),
+			number_format_i18n(get_comments_number())
+		); ?></h3>
 	<?php wp_list_comments(array('callback' => 'upqode_comment', 'style' => 'div')); ?>
 
 
@@ -59,6 +60,6 @@ $comments_args = array(
 	'submit_field'         => '</div><div class="input-wrapper clearfix">%1$s %2$s<span id="message"></span></div>',
 );
 ?>
-<div class="upqode-blog--single__comments-form">
+<div class="upqode-single__comments-form">
 	<?php comment_form($comments_args); ?>
 </div>
