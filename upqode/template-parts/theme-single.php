@@ -60,6 +60,7 @@ $author_id = get_the_author_meta('ID');
 
             <?php upqode_the_posts_navigation(); ?>
 
+            <?php upqode_comments(); ?>
         </div>
     </div>
 </section>

@@ -27,7 +27,7 @@ $posts = new WP_Query($args);
             <div class="upqode-blog__main-wrap">
                 <?php while ($posts->have_posts()) : $posts->the_post();
 
-                    get_template_part('template-parts/content/post', 'card');
+                    get_template_part('template-parts/content', 'post-card');
 
                 endwhile;
                 wp_reset_postdata(); ?>

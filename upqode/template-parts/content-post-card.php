@@ -16,9 +16,11 @@ $post_id   = get_the_ID();
 
   <div class="upqode-post-card__text"><?php the_excerpt(); ?></div>
 
-  <div class="upqode-post-card__media">
-    <?php echo upqode_get_image_post(); ?>
-  </div>
+  <?php if (has_post_thumbnail()) { ?>
+    <div class="upqode-post-card__media">
+      <?php the_post_thumbnail(); ?>
+    </div>
+  <?php } ?>
 
   <div class="upqode-post-card__categories">
     <?php the_category(' '); ?>

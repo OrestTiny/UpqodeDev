@@ -164,7 +164,7 @@ if (!function_exists('upqode_the_posts_navigation')) {
 					</a>
 				<?php } ?>
 			</div>
-<?php endif;
+		<?php endif;
 
 		echo '</div>';
 	}
@@ -205,5 +205,18 @@ if (!function_exists('upqode_posted_on')) {
 			esc_html__('Published %s', 'upqode'),
 			$time_string
 		);
+	}
+}
+
+
+
+if (!function_exists('upqode_comments')) {
+	function upqode_comments()
+	{
+		if (comments_open() || '0' != get_comments_number() && wp_count_comments(get_the_ID())) { ?>
+			<div class="upqode-single__comments">
+				<?php comments_template('', true); ?>
+			</div>
+<?php }
 	}
 }
