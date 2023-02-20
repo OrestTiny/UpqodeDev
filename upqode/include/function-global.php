@@ -64,7 +64,6 @@ if (!function_exists('upqode_sharing_icon_links')) {
 	}
 }
 
-
 /**
  *  Post Image
  */
@@ -85,8 +84,6 @@ if (!function_exists('upqode_get_image_post')) {
 		}
 	}
 }
-
-
 
 /**
  * Blog Pagination 

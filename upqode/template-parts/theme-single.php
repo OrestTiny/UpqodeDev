@@ -44,6 +44,8 @@ $author_id = get_the_author_meta('ID');
                 <?php echo get_comments_number($get_id); ?>
             </div>
 
+
+
             <div class="upqode-single__content">
                 <?php the_content(); ?>
             </div>
