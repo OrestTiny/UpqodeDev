@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) {
 get_header();
 
 while (have_posts()) : the_post();
-    get_search_form();
+
     the_content();
 
 endwhile;
