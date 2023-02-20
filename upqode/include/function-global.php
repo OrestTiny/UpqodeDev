@@ -80,7 +80,7 @@ if (!function_exists('upqode_get_image_post')) {
 
 			$image_html = '<img ' . $class_line . ' src="' . esc_url($image) . '" alt="' . esc_attr($image_alt) . '">';
 
-			return $image_html;
+			echo $image_html;
 		}
 	}
 }
@@ -88,21 +88,34 @@ if (!function_exists('upqode_get_image_post')) {
 /**
  * Blog Pagination 
  */
-if (!function_exists('upqode_blog_pagination')) {
-	function upqode_blog_pagination()
+if (!function_exists('upqode_custom_pagination')) {
+	function upqode_custom_pagination($query = null)
 	{
-?>
-		<div class="upqode-pagination">
-			<?php
-			the_posts_pagination(array(
-				'screen_reader_text' => ' ',
-				'prev_text' => __('Previous', 'upqode'),
-				'next_text' => __('Next', 'upqode'),
-			)); ?>
-		</div>
-		<?php
+		global $wp_query;
+		$query = $query ? $query : $wp_query;
+		$total_pages = $query->max_num_pages;
+
+		if ($total_pages > 1) {
+			$current_page = max(1, get_query_var('paged'));
+			$paginate_links = paginate_links(array(
+				'base' => add_query_arg('paged', '%#%'),
+				'format' => 'page/%#%',
+				'current' => $current_page,
+				'total' => $total_pages,
+				'prev_text' => __('« Prev'),
+				'next_text' => __('Next »'),
+			));
+
+			if ($paginate_links) {
+				echo '<div class="upqode-pagination">';
+				echo $paginate_links;
+				echo '</div>';
+			}
+		}
 	}
 }
+
+
 
 /**
  * Print the next and previous posts navigation.
@@ -214,6 +227,57 @@ if (!function_exists('upqode_comments')) {
 			<div class="upqode-single__comments">
 				<?php comments_template('', true); ?>
 			</div>
-<?php }
+		<?php }
+	}
+}
+
+
+if (!function_exists('upqode_post_card')) {
+	function upqode_post_card()
+	{
+		$author_id = get_the_author_meta('ID');
+		$post_id   = get_the_ID();
+		?>
+
+		<div class="upqode-post-card">
+			<?php if (!empty(get_the_title())) { ?>
+				<div class="upqode-post-card__title">
+					<h3>
+						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					</h3>
+				</div>
+			<?php } ?>
+
+			<div class="upqode-post-card__text"><?php the_excerpt(); ?></div>
+
+			<?php if (has_post_thumbnail()) { ?>
+				<div class="upqode-post-card__media">
+					<?php the_post_thumbnail(); ?>
+				</div>
+			<?php } ?>
+
+			<div class="upqode-post-card__categories">
+				<?php the_category(' '); ?>
+			</div>
+
+			<div class="upqode-post-card__time">
+				<?php echo upqode_reading_time(); ?>
+			</div>
+
+			<div class="upqode-post-card__author">
+				<?php echo get_avatar($author_id, 30); ?>
+				<div class="upqode-post-card__author-name">
+					<b><?php echo esc_html(get_the_author()); ?></b>
+				</div>
+			</div>
+
+			<a href="<?php the_permalink(); ?>">
+				<?php echo sprintf(esc_html__('%s ago', 'upqode'), human_time_diff(get_the_time('U'), current_time('timestamp'))); ?>
+			</a>
+
+			<a href="<?php the_permalink(); ?>" class="aheto-link aheto-btn--dark aheto-btn--no-underline"><?php esc_html_e('Continue Reading', 'upqode'); ?></a>
+		</div>
+
+<?php
 	}
 }

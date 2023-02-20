@@ -7,7 +7,7 @@
 	},
 	"license": "ISC",
 	"devDependencies": {
-		"@babel/core": "^7.20.7",
+		"@babel/core": "^7.20.12",
 		"@babel/preset-env": "^7.20.2",
 		"browserlist": "^1.0.1",
 		"gulp": "^4.0.2",
@@ -22,8 +22,8 @@
 		"gulp-size": "^4.0.1",
 		"gulp-strip-comments": "^2.5.2",
 		"gulp-uglify": "^3.0.2",
-		"postcss": "^8.4.20",
-		"sass": "^1.57.1",
+		"postcss": "^8.4.21",
+		"sass": "^1.58.3",
 		"sort-css-media-queries": "^2.1.0"
 	},
 	"dependencies": {
@@ -31,7 +31,7 @@
 		"gulp-sass": "^5.1.0",
 		"install": "^0.13.0",
 		"normalize-scss": "^7.0.1",
-		"npm": "^9.2.0",
+		"npm": "^9.5.0",
 		"streamqueue": "^1.1.2"
 	}
 }

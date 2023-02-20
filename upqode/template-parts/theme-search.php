@@ -38,13 +38,13 @@ $upqode_blog_title_text        =  esc_html__('Showing results for ', 'upqode') .
       <div class="upqode-search__main-wrap">
         <?php while ($posts->have_posts()) : $posts->the_post();
 
-          get_template_part('template-parts/content', 'post-card');
+          upqode_post_card();
 
         endwhile;
         wp_reset_postdata(); ?>
       </div>
-      <?php if (paginate_links()) {
-        upqode_blog_pagination();
+      <?php if (function_exists('upqode_custom_pagination')) {
+        upqode_custom_pagination($posts);
       } ?>
     </div>
   </div>

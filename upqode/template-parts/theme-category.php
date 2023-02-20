@@ -18,14 +18,12 @@
             <div class="upqode-blog__main-wrap">
                 <?php while (have_posts()) : the_post();
 
-                    get_template_part('template-parts/content', 'post-card');
+                    upqode_post_card();
 
                 endwhile;
                 wp_reset_postdata(); ?>
             </div>
-            <?php if (paginate_links()) {
-                upqode_blog_pagination();
-            } ?>
+            <?php upqode_custom_pagination(); ?>
         </div>
     </div>
 </section>
